@@ -17,7 +17,7 @@ export default function ProductCarousel ({dataArray,heading})  {
       </Text>
       <Swiper
         spaceBetween={50}
-        slidesPerView={4}
+        slidesPerView={5}
         onSlideChange={() => console.log("slide change")}
         onSwiper={(swiper) => console.log(swiper)}
         modules={[Navigation, Pagination, Scrollbar, A11y]}
@@ -29,7 +29,7 @@ export default function ProductCarousel ({dataArray,heading})  {
             <ProductCard
               name={item.name}
               price={item.price}
-              image={item.image_link || item.img}
+              image={item.image || item.img}
             />
           </SwiperSlide>
         ))}

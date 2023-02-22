@@ -30,6 +30,7 @@ export default function ProductCarousel ({dataArray,heading})  {
               name={item.name}
               price={item.price}
               image={item.image || item.img}
+              discount={item.discount}
             />
           </SwiperSlide>
         ))}

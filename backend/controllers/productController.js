@@ -1,43 +1,54 @@
-const Product = require("../models/product.model");
+const Product = require("../models/product.models");
+const ErrorHandler = require("../utils/errorhandler");
+const catchAsyncErrors = require("../middleware/catchAsyncError");
+const ApiFeatures = require("../utils/apiFeatures");
 
 // create product -- Admin
-const createProduct = async (req, res, next) => {
-  try {
-    const product = await Product.create(req.body);
-    res.status(201).json({
-      success: true,
-      product,
-    });
-  } catch (err) {}
-};
+const createProduct = catchAsyncErrors(async (req, res, next) => {
+  req.body.user = req.user.id;
+  const product = await Product.create(req.body);
+  res.status(201).json({
+    success: true,
+    product,
+  });
+});
 
 // get all products
-const getAllProducts = async (req, res) => {
-  const products = await Product.find();
-  res.status(200).json({ success: true, products });
-};
+const getAllProducts = catchAsyncErrors(async (req, res) => {
+  const resultPerPage = 5;
+  const productCount = await Product.countDocuments();
+  const apiFeature = new ApiFeatures(Product.find(), req.query)
+    .search()
+    .filter()
+    .pagination(resultPerPage);
+  const products = await apiFeature.query;
+  res.status(200).json({ success: true, productCount, products });
+});
 
 // Get Products Details
 
-const getProductsDetails = async (req, res, next) => {
+const getProductsDetails = catchAsyncErrors(async (req, res, next) => {
   const product = await Product.findById(req.params.id);
 
   if (!product) {
-    return res.status(500).json({
-      success: false,
-      message: "Product not found",
-    });
+    return next(new ErrorHandler("Product not found", 404));
+
+    // res.status(500).json({
+    //   success: false,
+    //   message: "Product not found",
+    // });
   }
 
   res.status(200).json({
     status: true,
+
     product,
   });
-};
+});
 
 // Update Porducts -- admin
 
-const updateProducts = async (req, res, next) => {
+const updateProducts = catchAsyncErrors(async (req, res, next) => {
   let product = await Product.findById(req.params.id);
 
   if (!product) {
@@ -45,10 +56,11 @@ const updateProducts = async (req, res, next) => {
     //   success: false,
     //   message: "Product not found",
     // });
-    return res.send({
-      success: false,
-      message: "Product not found",
-    });
+    return next(new ErrorHandler("Product Not Found", 500));
+    // return res.send({
+    //   success: false,
+    //   message: "Product not found",
+    // });
   }
   product = await Product.findByIdAndUpdate(req.params.id, req.body, {
     new: true,
@@ -59,17 +71,18 @@ const updateProducts = async (req, res, next) => {
     status: true,
     product,
   });
-};
+});
 
 // Delete Products
 
-const deleteProduct = async (req, res) => {
+const deleteProduct = catchAsyncErrors(async (req, res, next) => {
   let product = await Product.findById(req.params.id);
   if (!product) {
-    return res.status(500).json({
-      success: false,
-      message: "Product not found",
-    });
+    // return res.status(500).json({
+    //   success: false,
+    //   message: "Product not found",
+    // });
+    return next(new ErrorHandler("Product not found", 500));
   }
 
   await product.remove();
@@ -77,12 +90,49 @@ const deleteProduct = async (req, res) => {
     success: true,
     message: "Product deleted successfully",
   });
-};
+});
 
+// create new review or Update the review;
+const createProductReview = catchAsyncErrors(async (req, res, next) => {
+  const { rating, comment, productId } = req.body;
+  const review = {
+    user: req.user._id,
+    name: req.user.name,
+    rating: Number(rating),
+    comment,
+    productId,
+  };
+
+  const product = await Product.findById(productId);
+  const isReviewed = product.reviews.find(
+    (rev) => rev.user.toString() === req.user._id
+  );
+
+  if (isReviewed) {
+    product.reviews.forEach((rev) => {
+      if (rev.user.toString() === req.user._id.toString())
+        (rev.rating = rating), (rev.comment = comment);
+    });
+  } else {
+    product.reviews.push(review);
+    product.numOfReviews = product.reviews.length;
+  }
+  let avg = 0;
+  product.ratings =
+    product.reviews.forEach((rat) => {
+      avg += rat.rating;
+    }) / product.reviews.length;
+  await product.save({ validateBeforeSave: false });
+  console.log(product.reviews);
+  res.status(200).json({
+    success: true,
+  });
+});
 module.exports = {
   getAllProducts,
   createProduct,
   updateProducts,
   deleteProduct,
   getProductsDetails,
+  createProductReview,
 };

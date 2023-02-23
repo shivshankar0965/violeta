@@ -5,10 +5,12 @@ import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
 import "swiper/css/scrollbar";
-import { Box, Image } from "@chakra-ui/react";
+import { Box, Image, useMediaQuery } from "@chakra-ui/react";
 import { A11y, Navigation, Pagination, Scrollbar } from "swiper";
 
 export default function Carousel ({dataArray}) {
+  
+  
   return (
     <Box>
       <Swiper

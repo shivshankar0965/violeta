@@ -7,7 +7,7 @@ function App() {
   return (
     <>
       <Allroutes />
-      <CarousalTop/>
+      <CarousalTop />
     </>
   );
 }

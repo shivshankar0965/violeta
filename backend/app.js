@@ -4,6 +4,8 @@ const app = express();
 const cookieParser = require("cookie-parser");
 const bodyParser = require("body-parser");
 const fileUpload = require("express-fileupload");
+const cors = require('cors')
+app.use(cors())
 // Route Imports
 app.use(express.json());
 app.use(cookieParser());

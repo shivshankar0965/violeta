@@ -88,6 +88,7 @@ const Dashboard = () => {
           ))}
         </Flex>
         <Box>{/* <Line data={data} /> */}</Box>
+        <Box></Box>
       </Box>
     </>
   );

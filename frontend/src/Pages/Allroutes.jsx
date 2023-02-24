@@ -4,6 +4,8 @@ import Home from "../Components/Home/Home";
 import SignIn from "../Components/Login/login";
 
 import Navbar from "../Components/Navbar/Navbar";
+import Products from "./Products";
+import Admin from "../Components/Admin/Admin";
 import SignUp from "../Components/Signup/signup";
 
 const Allroutes = () => {
@@ -12,8 +14,8 @@ const Allroutes = () => {
       <Navbar />
       <Routes>
         <Route path="/" element={<Home />} />
-        <Route path='/sign-in' element={<SignIn/>} />
-    <Route path='/sign-up' element={<SignUp/>} />
+        <Route path="/products" element={<Products />} />
+        <Route path="/" element={<Admin />} />
       </Routes>
     </>
   );

@@ -1,0 +1,52 @@
+.OfferNavbar{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    right: 0;
+    z-index: 1000;
+    padding: 10px;
+    background-color: #f9d3e8;
+}
+
+.appfirst{
+    border: 2px dashed #ff147b;
+    padding-left: 6px;
+    padding-right: 6px;
+    background-color: white;
+}
+#offerCode{
+    color: #ff147b;
+    font-size: large;
+    font-weight: 600;
+}
+
+.downloadapp{
+    padding: 5px 10px;
+    border-radius: 5px;
+    font-size: 14px;
+    background-color: #ff147b;
+    color: white;
+    letter-spacing: initial;
+    
+}
+.downloadapp button{
+    font-weight: 600;  
+}
+#comboDown{
+    display: flex;
+    margin-right: 10%;
+}
+#cross{
+    text-align: center;
+    justify-content: center;
+    margin: 5px 10px;
+}
+
+@media(max-width:768px){
+    .OfferNavbar{
+        display: none;
+    }
+}

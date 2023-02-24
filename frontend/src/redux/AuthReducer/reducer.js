@@ -2,7 +2,7 @@ import { getLocalData, saveLocalData } from "../../utils/localStorage";
 import * as types from "./actionTypes";
 
 const initialState = {
-  isAuth: getLocalData("toke") ? true : false,
+  isAuth: getLocalData("token") ? true : false,
   token: getLocalData("token") || "",
   isLoading: false,
   isError: false,

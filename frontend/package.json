@@ -13,6 +13,7 @@
     "framer-motion": "^9.0.4",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
+    "react-form-stepper": "^2.0.3",
     "react-icons": "^4.7.1",
     "react-multi-carousel": "^2.8.2",
     "react-paginate": "^8.1.4",

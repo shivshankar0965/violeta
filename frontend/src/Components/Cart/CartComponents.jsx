@@ -1,16 +1,34 @@
 import { Box, Button, Center, Flex, Image, Input, Stack, Text } from '@chakra-ui/react'
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
 import { useMediaQuery } from '../Home/useMediaQuery'
+import PaymentModal from './PaymentModal'
 import ProductCard from './ProductCard'
 
-const CartComponents = ({data}) => {
+const CartComponents = () => {
+  const [data,setData]=useState(JSON.parse(localStorage.getItem('cart')))
+  const [total,setTotal]=useState(0)
+  const [coupon,setCoupon]=useState(false)
     const isMd=useMediaQuery(960)
+
+    useEffect(()=>{
+      let sum=0
+      data.forEach((el)=>{
+        sum+=el.price
+      })
+      setTotal(sum)
+    },[])
   return (
     <Center mt="100px" p="20px">
       <Stack direction={isMd ? "column" : "row"} gap="20px">
         <Stack gap="20px">
-          <Flex justifyContent='space-between' bgColor="#fbeef6" p='20px' borderRadius='7px' border='1px solid pink'>
+          <Flex
+            justifyContent="space-between"
+            bgColor="#fbeef6"
+            p="20px"
+            borderRadius="7px"
+            border="1px solid pink"
+          >
             <Image src="https://media6.ppl-media.com/mediafiles/ecomm/promo/1643285769_offer-icon.png" />
             <Text>Offers Available(1)</Text>
             <Link>View All</Link>
@@ -38,39 +56,49 @@ const CartComponents = ({data}) => {
           </Flex>
           <Flex gap="10px">
             <Input placeholder="Coupon Code" />
-            <Button bgColor="#e40980" color="white">
+            <Button
+              onClick={() => setCoupon(true)}
+              bgColor="#e40980"
+              color="white"
+            >
               Apply
             </Button>
           </Flex>
           <hr />
 
-          <Text>Price</Text>
+          <Text as="b">Price</Text>
           <Flex gap="40px">
             <Stack>
-              <Text>Total</Text>
-              <Text>Shipping Charges</Text>
-              <Text>Coupon Discount</Text>
+              <Text as="b">Total</Text>
+              <Text as="b">Shipping Charges</Text>
             </Stack>
             <Stack>
-              <Text>Total</Text>
-              <Text>0</Text>
-              <Text>100</Text>
+              <Text as="b">₹{total}</Text>
+              <Text as="b">₹50</Text>
             </Stack>
           </Flex>
           <hr />
           <Flex gap="40px">
             <Stack>
-              <Text>Order Total</Text>
-              <Text>You Save</Text>
+              <Text as="b">Order Total</Text>
+              <Text as="b" display={coupon ? "block" : "none"}>
+                You Save
+              </Text>
+              <Text as="b" display={coupon ? "block" : "none"}>
+                Grand Total
+              </Text>
             </Stack>
             <Stack>
-              <Text>total</Text>
-              <Text>100</Text>
+              <Text as="b">₹{total + 50}</Text>
+              <Text as="b" display={coupon ? "block" : "none"}>
+                ₹100
+              </Text>
+              <Text as="b" display={coupon ? "block" : "none"}>
+                ₹{total + 50 - 100}
+              </Text>
             </Stack>
           </Flex>
-          <Button bgColor="#e40980" color="white">
-            Place Order
-          </Button>
+          <PaymentModal />
         </Stack>
       </Stack>
     </Center>

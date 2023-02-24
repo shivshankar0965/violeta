@@ -10,13 +10,13 @@ import {
 } from "@chakra-ui/react";
 import {
   AiFillTwitterCircle,
-  AiFillFacebook,
   AiFillGooglePlusCircle,
   AiTwotoneMail,
   AiFillYoutube,
   AiFillInstagram,
   AiFillLinkedin,
 } from "react-icons/ai";
+import { FaFacebook} from "react-icons/fa"
 
 const Footer = () => {
   return (
@@ -243,7 +243,7 @@ const Footer = () => {
           <Flex pt="40px" pl="30px" >
             
             <Box borderRadius={"50px"}>
-              <AiFillFacebook size={"30px"}  color="#39579a" className="icons" />
+              <FaFacebook size={"30px"}  color="#39579a" className="icons" />
             </Box>
             <Box>
               <AiFillTwitterCircle size={"30px"} color="#00abf0" className="icons" />

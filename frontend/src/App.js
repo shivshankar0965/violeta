@@ -7,7 +7,11 @@ function App() {
   return (
     <>
       <Allroutes />
+<<<<<<< HEAD
       
+=======
+      <CarousalTop />
+>>>>>>> master
     </>
   );
 }

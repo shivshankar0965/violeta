@@ -1,0 +1,108 @@
+.mainDiv{
+    /* border: 10px solid green; */
+    display: grid;
+    gap:10px;
+    width: 80%;
+    margin: auto;
+    
+    
+}
+
+#firstDiv{
+/* border: 1px solid red; */
+margin: auto;
+width: 90%;
+/* box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px; */
+
+}
+
+#imageDiv{
+position: relative;
+padding: 1rem;
+/* border: 2px solid blue; */
+width: 90%;
+margin: auto;
+/* box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px; */
+
+}
+
+#details{
+    /* border: 1px solid yellow; */
+    margin: auto;
+    padding-left: 1rem;
+    
+}
+
+#button{
+padding: 0rem 0.2rem;
+border-radius: 10%;
+font-size: small;
+color: #ff147b;
+font-weight: bolder;
+box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+margin-left: 0.2rem;
+background-color: white;
+}
+
+#button:hover{
+    border: 1px solid red;
+    
+    
+}
+
+#oneLineDiv{
+    display: flex;
+    gap:0.5rem
+}
+
+#oneLineDiv>h2{
+font-size: large;
+color:#2C414C
+}
+
+#oneLineDiv>p>s{
+    color:grey;
+    font-size: small;
+ }
+
+ #oneLineDiv>p+p{
+    color:#ff147b
+  
+ }
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* mediaQurey */
+@media only screen and (min-width: 769px) and (max-width: 1110px) {
+
+    
+}
+@media only screen and (min-width: 481px) and (max-width: 768px) {
+    #imageDiv>img{
+        height: 200px;
+      
+    }
+  
+}
+@media only screen and (min-width: 321px) and (max-width: 480px) {
+    #imageDiv>img{
+        height: 250px;
+    }
+ 
+}
+
+@media only screen and (max-width: 320px) {
+    #imageDiv>img{
+        height: 150px;
+    }
+}

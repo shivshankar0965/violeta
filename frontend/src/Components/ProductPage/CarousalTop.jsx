@@ -22,7 +22,7 @@ const CarousalTop = () => {
     },
   };
   return (
-    <div style={{ display: "grid",width:"90%" ,margin:"auto",marginTop:"20px"}}>
+    <div style={{ display: "grid",width:"100%" ,margin:"auto",marginTop:"1rem"}}>
       <Carousel responsive={responsive}  showDots={true} transitionDuration={1000}>
         {CarousalOne.map((el) => {
           return (
@@ -31,7 +31,7 @@ const CarousalTop = () => {
                 <img
                   src={el.image}
                   alt="images"
-                  height={{ lg: "100%", md: "80%", sm: "100%" }}
+                  height={{ lg: "100%", md: "80%", sm: "60%" }}
                   width="100%"
                 />
               </div>

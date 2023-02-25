@@ -13,12 +13,8 @@ function App() {
   return (
     <>
       <Allroutes />
-
-      
- 
-      
-        <SignUp/> 
-      <SignIn/>  
+        {/* <SignUp/> 
+      <SignIn/>   */}
     </>
   );
 }

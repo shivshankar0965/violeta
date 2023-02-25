@@ -7,6 +7,7 @@ import Navbar from "../Components/Navbar/Navbar";
 import Products from "./Products";
 import Admin from "../Components/Admin/Admin";
 import SignUp from "../Components/Signup/signup";
+import SingleProductPage from "../Components/ProductPage/SingleProductPage";
 
 const Allroutes = () => {
   return (
@@ -16,6 +17,9 @@ const Allroutes = () => {
         <Route path="/" element={<Home />} />
         <Route path="/products" element={<Products />} />
         <Route path="/" element={<Admin />} />
+        <Route path="/products/:id" element={<SingleProductPage />} />
+
+
         
 
       </Routes>

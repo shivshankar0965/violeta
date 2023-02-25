@@ -1,0 +1,176 @@
+.SingleDiv {
+    border: 1px solid green;
+    display: flex;
+    width: 90%;
+    height: auto;
+    margin: auto;
+    justify-content: space-between;
+    margin-top: 5rem;
+
+}
+
+.left {
+    width: 55%;
+    border: 1px solid red;
+    display: flex;
+    height: auto;
+}
+
+.right {
+    width: 42%;
+    border: 1px solid yellow;
+    text-align: left;
+    padding-left: 2rem;
+
+}
+
+.left_first {
+    border: 1px dotted purple;
+}
+
+
+.right h1 {
+    color: purple;
+    font-weight: bolder;
+    font-size: larger;
+}
+
+
+.extraa {
+    border: 1px solid blue;
+    width: 400px;
+    height: auto;
+    margin: auto;
+    margin-top: 5rem;
+
+}
+
+.extraa>div {
+    margin: 0.8rem;
+}
+
+.extraa>div h1 {
+    margin: 1rem;
+    color: grey;
+    font-size: large;
+}
+
+
+.right>button {
+    border: 1px solid green;
+    width: 100%;
+    padding: 0.5rem;
+    background-color: #60f;
+    color: white;
+    border-radius: 15px;
+    border: none;
+    font-size: x-large;
+    margin-top: 3rem;
+
+}
+
+
+
+/* applying media queries */
+@media only screen and (min-width: 769px) and (max-width: 1110px) {}
+
+@media only screen and (min-width: 481px) and (max-width: 768px) {
+    .SingleDiv {
+        display: block;
+        margin-top: 1rem;
+
+    }
+
+    .left {
+        width: 90%;
+        margin: auto;
+    }
+
+    .right {
+        width: 90%;
+        margin: auto;
+        padding-left: 0rem;
+        margin-top: 2rem;
+    }
+
+    .right>button {
+        border: 1px solid green;
+        width: 100%;
+
+
+    }
+}
+
+@media only screen and (min-width: 321px) and (max-width: 480px) {
+    .SingleDiv {
+        display: block;
+        margin-top: 1rem;
+
+    }
+
+    .left {
+        width: 90%;
+        margin: auto;
+
+    }
+
+    .right {
+        width: 90%;
+        margin: auto;
+        padding-left: 0rem;
+        margin-top: 2rem;
+
+    }
+
+    .right>button {
+        border: 1px solid green;
+        width: 100%;
+    }
+
+    .extraa {
+        width: 90%;
+        margin: auto;
+        margin-top: 2rem;
+
+
+    }
+
+    .extraa>img {
+        width: 10%;
+        height: 20%;
+    }
+}
+
+@media only screen and (max-width: 320px) {
+    .SingleDiv {
+        display: block;
+        margin-top: 0px;
+    }
+
+
+    .left {
+        width: 90%;
+        margin: auto;
+    }
+
+    .right {
+        width: 90%;
+        margin: auto;
+        padding-left: 0rem;
+        margin-top: 2rem;
+
+    }
+
+    .extraa {
+        width: 90%;
+        margin: auto;
+        margin-top: 2rem;
+
+
+    }
+
+    .extraa>img {
+        width: 10%;
+        height: 20%;
+    }
+}

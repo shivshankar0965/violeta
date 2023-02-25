@@ -5,6 +5,7 @@ import CarousalTop from '../Components/ProductPage/CarousalTop'
 import CarousalThird from '../Components/ProductPage/CarousalThird'
 import CarousalForth from '../Components/ProductPage/CarousalForth'
 import Filter from '../Components/ProductPage/Filter'
+import AllProducts from "../Components/ProductPage/AllProducts"
 
 const Products = () => {
   return (
@@ -17,6 +18,8 @@ const Products = () => {
         <CarousalThird/>
         <h1>CURATED FOR YOU</h1>
         <CarousalForth/>
+        <h1>ALL PRODUCTS</h1>
+        <AllProducts/>
 
 
        

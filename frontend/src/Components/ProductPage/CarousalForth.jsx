@@ -43,9 +43,9 @@ const CarousalForth = () => {
               <h2>{el.price}</h2>
               <p><s>{el.cross}</s></p>
               <p>{el.off}</p>
+              <button>Add To Cart</button>
               </div>
               </div>
-              
             </div>
           );
         })}

@@ -13,8 +13,6 @@ function App() {
   return (
     <>
       <Allroutes />
-        {/* <SignUp/> 
-      <SignIn/>   */}
     </>
   );
 }

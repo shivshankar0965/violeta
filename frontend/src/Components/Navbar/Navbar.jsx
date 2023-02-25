@@ -28,7 +28,7 @@ import { BsMinecartLoaded } from "react-icons/bs";
 import { CiSearch } from "react-icons/ci";
 import { HiMenu } from "react-icons/hi";
 import { BsHeart } from "react-icons/bs";
-import logo from "../../Assets/violeta_logo.jpeg";
+import logo from "../../Assets/violeta1.png";
 
 const isAuth = false;
 const Navbar = () => {
@@ -50,8 +50,6 @@ const Navbar = () => {
           w="100%"
         >
           <Box id="after-top">
-            
-
             {/* <div id="search-bar">
               <InputGroup>
                 <Input placeholder="Search for a Product or a Brand" />
@@ -108,8 +106,8 @@ const Navbar = () => {
               <Link to="/">
                 <Image
                   className="logo"
-                  src="https://media6.ppl-media.com/static/purplle/img/purplle-logo-1.svg"
-                  // src={logo}
+                  // src="https://media6.ppl-media.com/static/purplle/img/purplle-logo-1.svg"
+                  src={logo}
                   alt="logo"
                 />
               </Link>
@@ -117,11 +115,15 @@ const Navbar = () => {
 
             {/* old   */}
             <div style={{ display: "flex", gap: "50px" }}>
-            <div   style={{
-                      display: "flex",
-                      alignItems: "center",
-                      // gap: "10px",
-                    }}><BsHeart size="2em"/></div>
+              <div
+                style={{
+                  display: "flex",
+                  alignItems: "center",
+                  // gap: "10px",
+                }}
+              >
+                <BsHeart size="2em" />
+              </div>
               <div id="dropdown-account">
                 <div>
                   <Link
@@ -132,8 +134,8 @@ const Navbar = () => {
                       // gap: "10px",
                     }}
                   >
-                    <CiFaceSmile  size="2.6em" />
-                    <Text>{isAuth ? "username" : <BiMenuAltRight/>}</Text>
+                    <CiFaceSmile size="2.6em" />
+                    <Text>{isAuth ? "username" : <BiMenuAltRight />}</Text>
                   </Link>
                 </div>
                 <div id="dropdown-account-content">
@@ -142,7 +144,8 @@ const Navbar = () => {
                       colorScheme="none"
                       w="full"
                       bgColor="black"
-                      borderRadius={0}
+                      borderRadius="5px"
+                      size="xs"
                     >
                       LOGOUT
                     </Button>
@@ -151,8 +154,9 @@ const Navbar = () => {
                       <Button
                         colorScheme="none"
                         w="full"
-                        bgColor="black"
-                        borderRadius={0}
+                        bgColor="#7427e4"
+                          borderRadius="5px"
+                          size="xs"
                       >
                         LOGIN
                       </Button>
@@ -162,10 +166,11 @@ const Navbar = () => {
                     <Button
                       colorScheme="none"
                       mt={4}
-                      borderRadius={0}
+                      borderRadius="5px"
                       color="black"
                       w="full"
                       variant="outline"
+                      size="xs"
                     >
                       REGISTER
                     </Button>
@@ -191,14 +196,14 @@ const Navbar = () => {
               <div class="dropdown">
                 <Link to="/cart">
                   <div
-                     style={{
+                    style={{
                       display: "flex",
                       alignItems: "center",
                       // gap: "10px",
                     }}
                   >
                     <div id="cart-icon">
-                      <BsMinecartLoaded  size="2em" />
+                      <BsMinecartLoaded size="2em" />
                       <p className="cartValue">{"cartItems.length"}</p>
                     </div>
 
@@ -225,10 +230,14 @@ const Navbar = () => {
               margin="auto"
               id="hover-black"
             >
-              <div id="menu-dropdown" >
-              
-                <Link to="/holiday" >
-                  <div id="menu-title" ><span><BiMenuAltRight/></span><span>Makeup</span></div>
+              <div id="menu-dropdown">
+                <Link to="/holiday">
+                  <div id="menu-title">
+                    <span>
+                      <BiMenuAltRight />
+                    </span>
+                    <span>Makeup</span>
+                  </div>
                 </Link>
                 <div className="menu-dropdown-content">
                   <Box display="flex" gap="50px" pt={5} padding="20px">
@@ -546,7 +555,6 @@ const Navbar = () => {
                           {" "}
                           <p>BB & CC Cream</p>
                         </Link>
-                        
                       </div>
                     </div>
 
@@ -625,7 +633,7 @@ const Navbar = () => {
                           <p>Body Wash & Shower Gel</p>
                         </Link>
                         <Link to="">
-                          <p>Body Scrub &  Polish</p>
+                          <p>Body Scrub & Polish</p>
                         </Link>
                       </div>
                     </div>
@@ -670,7 +678,6 @@ const Navbar = () => {
                         <Link to="">
                           <p>Conditioner</p>
                         </Link>
-                        
                       </div>
                     </div>
                     <div
@@ -707,7 +714,6 @@ const Navbar = () => {
                           {" "}
                           <p>Hair Spa & Mask</p>
                         </Link>
-                        
                       </div>
                     </div>
 
@@ -855,7 +861,6 @@ const Navbar = () => {
                         <Link to="">
                           <p>Hair Crimpers</p>
                         </Link>
-                        
                       </div>
                     </div>
                     <div
@@ -896,7 +901,6 @@ const Navbar = () => {
                           {" "}
                           <p>Female Grooming</p>
                         </Link>
-                        
                       </div>
                     </div>
 
@@ -933,11 +937,8 @@ const Navbar = () => {
                         </Link>
                       </div>
                     </div>
-
-                  
                   </Box>
                 </div>
-                
               </div>
               <div id="menu-dropdown">
                 <Link to="">
@@ -976,8 +977,6 @@ const Navbar = () => {
                         <Link to="">
                           <p>AfterShaves</p>
                         </Link>
-                        
-                        
                       </div>
                     </div>
                     <div
@@ -1026,7 +1025,6 @@ const Navbar = () => {
                           {" "}
                           <p>Gel</p>
                         </Link>
-                        
                       </div>
                     </div>
 
@@ -1152,7 +1150,7 @@ const Navbar = () => {
                   <div id="menu-title">Men</div>
                 </Link>
                 <div className="menu-dropdown-content">
-                  <Box display="flex"  gap="50px" pt={5} padding="20px">
+                  <Box display="flex" gap="50px" pt={5} padding="20px">
                     <div
                       style={{ fontFamily: "sans-serif", paddingLeft: "20px" }}
                     >
@@ -1184,11 +1182,8 @@ const Navbar = () => {
                         <Link to="">
                           <p>AfterShaves</p>
                         </Link>
-                        
-                        
                       </div>
                     </div>
-                  
 
                     <div
                       style={{ fontFamily: "sans-serif", paddingLeft: "20px" }}
@@ -1427,7 +1422,7 @@ const Navbar = () => {
               <InputRightElement />
             </InputGroup>
           </div>
-         
+
           <div style={{ display: "flex", gap: "10px", alignItems: "center" }}>
             <Link to="/login">
               <CiFaceSmile color="#6b3293" size="1.2em" />

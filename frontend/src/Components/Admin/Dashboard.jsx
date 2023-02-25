@@ -1,8 +1,26 @@
-import { Box, Flex, Heading, Text } from "@chakra-ui/react";
-import React from "react";
+import React, { useEffect } from "react";
+import {
+  Box,
+  Flex,
+  Heading,
+  Table,
+  Tbody,
+  Text,
+  Th,
+  Thead,
+  Tr,
+} from "@chakra-ui/react";
+import { useSelector, useDispatch } from "react-redux";
+import { getOrders } from "../../redux/admin/admin.actions";
 import BreadCrumbUtils from "../../utils/BreadCrumb";
-import { Line } from "react-chartjs-2";
+import { Chart } from "react-google-charts";
+import Headings from "./Headings";
 const Dashboard = () => {
+  const dispatch = useDispatch();
+  useEffect(() => {
+    dispatch(getOrders());
+  }, []);
+
   const links = [
     {
       title: "dashboard",
@@ -26,20 +44,23 @@ const Dashboard = () => {
       bg: "#5197c2",
     },
   ];
-  const data = {
-    labels: ["Initial Amount", "Amount Earned"],
-    datasets: [
-      {
-        label: "TOTAL AMOUNT",
-        backgroundColor: "red",
 
-        data: [0, 200],
-      },
-    ],
+  const data = [
+    ["Initial Amount", "Amount Earned"],
+    [0, 200],
+    [1, 60003],
+    [2, 7000],
+  ];
+  const options = {
+    chart: {
+      title: "Daily Earnings  Till now",
+      subtitle: "in Indian Rupee (₹)",
+    },
   };
+
   return (
     <>
-      <Box ml={"4"}>
+      <Box ml={"8"}>
         <Box maxW={"md"}>
           <BreadCrumbUtils data={links} />
         </Box>
@@ -54,7 +75,7 @@ const Dashboard = () => {
             p={"2"}
             fontWeight={"medium"}
           >
-            <Text>Total Amont</Text>
+            <Text>Total Amount</Text>
             <Text>{`₹${200}`}</Text>
           </Box>
         </Box>
@@ -87,8 +108,59 @@ const Dashboard = () => {
             </Flex>
           ))}
         </Flex>
-        <Box>{/* <Line data={data} /> */}</Box>
-        <Box></Box>
+        <Box width={"95%"} mt="20px">
+          <Chart
+            chartType="Line"
+            width="100%"
+            height="400px"
+            data={data}
+            options={options}
+          />
+        </Box>
+        <Box display={"flex"} alignItems="flex-start">
+          <Chart
+            chartType="PieChart"
+            width="100%"
+            height="400px"
+            data={[
+              ["Task", "Hours per Day"],
+              ["Stock", 11],
+              ["Out of Stock", 2],
+            ]}
+            options={{
+              title: "InStock | Out of Stock",
+              pieHole: 0.4,
+              is3D: false,
+            }}
+          />
+        </Box>
+        <Headings title={"Recent Orders"} />
+
+        <Box
+          flexDirection={"column"}
+          display={"flex"}
+          gap={"10"}
+          color={"white"}
+          w={"100%"}
+        >
+          <Table>
+            <Thead>
+              <Tr>
+                <Th>ID</Th>
+                <Th>User</Th>
+                <Th>Shipping Address</Th>
+                <Th>No. of Items</Th>
+                <Th>Order Status</Th>
+                <Th>Total Price</Th>
+              </Tr>
+            </Thead>
+            <Tbody>
+              {/* {topProducts?.map((product, i) => (
+                <ProductRow key={i} {...product} />
+              ))} */}
+            </Tbody>
+          </Table>
+        </Box>
       </Box>
     </>
   );

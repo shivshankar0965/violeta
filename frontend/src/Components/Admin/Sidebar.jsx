@@ -26,43 +26,41 @@ const Sidebar = ({ hamController, hamClick }) => {
     {
       icon: <MdOutlineDashboardCustomize />,
       label: "dashboard",
-      func: handleDash,
+      func: "/admin/dashboard",
     },
     {
       icon: <BsArrowDownUp />,
       label: "products",
-      func: handleDash,
       menu: [
         {
           icon: <BsCheck2All />,
           label: "All",
-          func: handleCreateProduct,
+          func: "/admin/products",
         },
         {
           icon: <AiOutlinePlus />,
           label: "Add New",
-          func: handleCreateProduct,
+          func: "/admin/products/new",
         },
       ],
     },
     {
       icon: <FaHandHoldingUsd />,
       label: "Orders",
-      func: handleDash,
+      func: "/admin/orders",
     },
     {
       icon: <FiUsers />,
       label: "Users",
-      func: handleDash,
+      func: "/admin/users",
     },
     {
       icon: <BiCommentAdd />,
       label: "Reviews",
-      func: handleDash,
+      func: "/admin/reviews",
     },
   ];
-  function handleDash() {}
-  function handleCreateProduct() {}
+  console.log(sideBarLinks[0].func);
   return (
     <>
       <Flex
@@ -128,7 +126,10 @@ const Sidebar = ({ hamController, hamClick }) => {
                   >
                     {navlink.menu &&
                       navlink.menu.map((submenu) => (
-                        <MenuItem key={submenu}>
+                        <MenuItem
+                          onClick={() => navigate(submenu.func)}
+                          key={submenu}
+                        >
                           <Box mr={"4"}>{submenu.icon}</Box>
                           <Box>{submenu.label}</Box>
                         </MenuItem>
@@ -142,6 +143,7 @@ const Sidebar = ({ hamController, hamClick }) => {
                     borderRadius={"md"}
                     backgroundColor={"pink.300"}
                     mr={"4"}
+                    onClick={() => navigate(navlink.func)}
                   >
                     {navlink.icon}
                   </Box>

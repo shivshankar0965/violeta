@@ -64,7 +64,7 @@ const Admin = () => {
           width={["100vw", "100vw", "100vw", "80vw", "80vw"]}
           right={"0"}
           // top={["100vh", "100vh", "100vh", "0", "0"]}
-          overflow={"scroll"}
+
           height={"200vh"}
         >
           <Box mt={"7rem"}>

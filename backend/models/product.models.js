@@ -14,16 +14,24 @@ const productSchema = mongoose.Schema({
     required: [true, "Please Enter product price"],
     maxLength: [8, "Price cannot exceed 8 characters"],
   },
+  strikedPrice: {
+    type: Number,
+    required: [true, "Please Enter product price"],
+    maxLength: [8, "Price cannot exceed 8 characters"],
+  },
+  offer: {
+    type: Number,
+  },
+  freeGift: {
+    type: Number,
+  },
   ratings: {
     type: Number,
     default: 0,
   },
+
   images: [
     {
-      public_id: {
-        type: String,
-        required: true,
-      },
       url: {
         type: String,
         required: true,

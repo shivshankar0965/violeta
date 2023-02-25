@@ -1,17 +1,15 @@
 import "./App.css";
-import Navbar from "./Components/Navbar/Navbar";
 import Allroutes from "./Pages/Allroutes";
-import CarousalTop from "./Components/ProductPage/CarousalTop";
-import Footer from "./Components/Footer/Footer";
+import AdminRoutes from "./Pages/AdminRoutes";
+import { useLocation } from "react-router-dom";
 
 function App() {
-  return (
-    <>
-      <Allroutes />
-      <CarousalTop />
-      <Footer/>
-    </>
-  );
+  const location = useLocation();
+  if (location.pathname === "/") {
+    return <Allroutes />;
+  } else {
+    return <AdminRoutes />;
+  }
 }
 
 export default App;

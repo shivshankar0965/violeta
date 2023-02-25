@@ -1,20 +1,15 @@
 import "./App.css";
-
 import Allroutes from "./Pages/Allroutes";
-
-
-
-import SignUp from "./Components/Signup/signup";
-import SignIn from "./Components/Login/login";
-
-
+import AdminRoutes from "./Pages/AdminRoutes";
+import { useLocation } from "react-router-dom";
 
 function App() {
-  return (
-    <>
-      <Allroutes />
-    </>
-  );
+  const location = useLocation();
+  if (location.pathname === "/") {
+    return <Allroutes />;
+  } else {
+    return <AdminRoutes />;
+  }
 }
 
 export default App;

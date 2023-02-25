@@ -1,0 +1,26 @@
+.sidebar{
+    background-color: rgb(236, 225, 246);
+}
+.sidebar_header{
+    position: relative;   
+}
+.border_bottom{
+    position: absolute;
+    height: 4px;
+    width: 80%;
+    border-radius: 50%;
+    background-color: black;
+    left: 10%;
+    bottom: -6px;
+}
+.sidebar_links{
+    margin-top: 30px;
+}
+.sidebar_link{
+    padding: 1rem 2.4rem;
+    cursor: pointer;
+    transition: all 0.3s ;
+}
+.sidebar_link:hover{
+    background-color: rgb(207, 192, 222);
+}

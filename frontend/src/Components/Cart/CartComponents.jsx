@@ -1,23 +1,32 @@
-import { Box, Button, Center, Flex, Image, Input, Stack, Text } from '@chakra-ui/react'
-import React, { useEffect, useState } from 'react'
-import { Link } from 'react-router-dom'
-import { useMediaQuery } from '../Home/useMediaQuery'
-import PaymentModal from './PaymentModal'
-import ProductCard from './ProductCard'
+import {
+  Button,
+  Center,
+  Flex,
+  Image,
+  Input,
+  Stack,
+  Text,
+} from "@chakra-ui/react";
+import React, { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
+import { useMediaQuery } from "../Home/useMediaQuery";
+import PaymentModal from "./PaymentModal";
+import ProductCard from "./ProductCard";
 
 const CartComponents = () => {
-  const [data,setData]=useState(JSON.parse(localStorage.getItem('cart')))
-  const [total,setTotal]=useState(0)
-  const [coupon,setCoupon]=useState(false)
-    const isMd=useMediaQuery(960)
+  const data = JSON.parse(localStorage.getItem("cart"));
+  // const [data, setData] = useState(JSON.parse(localStorage.getItem("cart")));
+  const [total, setTotal] = useState(0);
+  const [coupon, setCoupon] = useState(false);
+  const isMd = useMediaQuery(960);
 
-    useEffect(()=>{
-      let sum=0
-      data.forEach((el)=>{
-        sum+=el.price
-      })
-      setTotal(sum)
-    },[])
+  useEffect(() => {
+    let sum = 0;
+    data.forEach((el) => {
+      sum += el.price;
+    });
+    setTotal(sum);
+  }, [data]);
   return (
     <Center mt="100px" p="20px">
       <Stack direction={isMd ? "column" : "row"} gap="20px">
@@ -103,6 +112,6 @@ const CartComponents = () => {
       </Stack>
     </Center>
   );
-}
+};
 
-export default CartComponents
+export default CartComponents;

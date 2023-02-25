@@ -16,7 +16,7 @@ const productSchema = mongoose.Schema({
   },
   strikedPrice: {
     type: Number,
-    required: [true, "Please Enter product price"],
+    required: [true, "Please Enter product striked price"],
     maxLength: [8, "Price cannot exceed 8 characters"],
   },
   offer: {
@@ -42,6 +42,8 @@ const productSchema = mongoose.Schema({
     type: String,
     required: [true, "Please Enter Product Category"],
   },
+  subcat1:String,
+  subcat2:String,
   stock: {
     type: Number,
     required: [true, "Please Enter Product Strock"],

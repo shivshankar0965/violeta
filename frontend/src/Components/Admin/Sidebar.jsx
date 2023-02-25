@@ -1,7 +1,6 @@
 import { ChevronDownIcon } from "@chakra-ui/icons";
 import {
   Box,
-  Button,
   Flex,
   Heading,
   Image,
@@ -17,7 +16,7 @@ import { FiUsers } from "react-icons/fi";
 import { BiCommentAdd } from "react-icons/bi";
 import { FaHandHoldingUsd } from "react-icons/fa";
 import { AiOutlinePlus } from "react-icons/ai";
-import { Link, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 import "./sidebar.css";
 const Sidebar = ({ hamController, hamClick }) => {
@@ -26,7 +25,7 @@ const Sidebar = ({ hamController, hamClick }) => {
     {
       icon: <MdOutlineDashboardCustomize />,
       label: "dashboard",
-      func: "/admin/dashboard",
+      url: "/admin/dashboard",
     },
     {
       icon: <BsArrowDownUp />,
@@ -40,24 +39,24 @@ const Sidebar = ({ hamController, hamClick }) => {
         {
           icon: <AiOutlinePlus />,
           label: "Add New",
-          func: "/admin/products/new",
+          func: "/admin/addproduct",
         },
       ],
     },
     {
       icon: <FaHandHoldingUsd />,
       label: "Orders",
-      func: "/admin/orders",
+      url: "/admin/orders",
     },
     {
       icon: <FiUsers />,
       label: "Users",
-      func: "/admin/users",
+      url: "/admin/users",
     },
     {
       icon: <BiCommentAdd />,
       label: "Reviews",
-      func: "/admin/reviews",
+      url: "/admin/reviews",
     },
   ];
   console.log(sideBarLinks[0].func);
@@ -96,7 +95,7 @@ const Sidebar = ({ hamController, hamClick }) => {
           {sideBarLinks &&
             sideBarLinks.map((navlink, i) =>
               navlink.menu ? (
-                <Menu>
+                <Menu key={i}>
                   <MenuButton width={"100%"}>
                     <Flex
                       pos="relative"
@@ -125,10 +124,10 @@ const Sidebar = ({ hamController, hamClick }) => {
                   // left={["-200px", "-190px", "-220px", "-230px"]}
                   >
                     {navlink.menu &&
-                      navlink.menu.map((submenu) => (
+                      navlink.menu.map((submenu, i) => (
                         <MenuItem
                           onClick={() => navigate(submenu.func)}
-                          key={submenu}
+                          key={i}
                         >
                           <Box mr={"4"}>{submenu.icon}</Box>
                           <Box>{submenu.label}</Box>
@@ -137,13 +136,17 @@ const Sidebar = ({ hamController, hamClick }) => {
                   </MenuList>
                 </Menu>
               ) : (
-                <Flex className="sidebar_link" alignItems={"center"}>
+                <Flex
+                  key={i}
+                  onClick={() => navigate(navlink.url)}
+                  className="sidebar_link"
+                  alignItems={"center"}
+                >
                   <Box
                     padding={"2.5"}
                     borderRadius={"md"}
                     backgroundColor={"pink.300"}
                     mr={"4"}
-                    onClick={() => navigate(navlink.func)}
                   >
                     {navlink.icon}
                   </Box>

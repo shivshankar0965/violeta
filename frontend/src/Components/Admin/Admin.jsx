@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import Sidebar from "./Sidebar";
-import { Box, Flex, Grid, GridItem, Heading } from "@chakra-ui/react";
+import { Box } from "@chakra-ui/react";
 import ProfileIcon from "../../Profile/ProfileIcon";
 import { GiHamburgerMenu } from "react-icons/gi";
 import { Outlet } from "react-router-dom";

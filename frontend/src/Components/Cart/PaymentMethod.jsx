@@ -1,8 +1,8 @@
-import { Box, Flex, Input, Select, Stack } from '@chakra-ui/react'
-import React, { useState } from 'react'
+import { Flex, Input, Select, Stack } from "@chakra-ui/react";
+import React, { useState } from "react";
 
 const PaymentMethod = () => {
-    const [online,setOnline]=useState(false)
+  const [online, setOnline] = useState(false);
   return (
     <Stack gap="20px">
       <Select
@@ -18,7 +18,7 @@ const PaymentMethod = () => {
         <option value="1">Cash On Delivery</option>
         <option value="2">Credit Card</option>
       </Select>
-      <Stack display={online?"block":"none"} gap='10px'>
+      <Stack display={online ? "block" : "none"} gap="10px">
         <Input placeholder="Card Number" type="number" />
         <Input placeholder="Name on Card" type="text" />
         <Flex gap="20px">
@@ -28,6 +28,6 @@ const PaymentMethod = () => {
       </Stack>
     </Stack>
   );
-}
+};
 
-export default PaymentMethod
+export default PaymentMethod;

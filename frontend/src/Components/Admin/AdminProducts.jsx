@@ -1,10 +1,15 @@
-import { Box, Flex, Table, Tbody, Text, Th, Thead, Tr } from "@chakra-ui/react";
-import React from "react";
+import { Box, Table, Tbody, Th, Thead, Tr } from "@chakra-ui/react";
+import React, { useEffect } from "react";
 import Headings from "./Headings";
 import BreadCrumbUtils from "../../utils/BreadCrumb";
-import Chart from "react-google-charts";
+import { useDispatch, useSelector } from "react-redux";
+import { getProducts } from "../../redux/admin/admin.actions";
+import ProductRow from "./ProductRow";
 
 const AdminProducts = () => {
+  const dispatch = useDispatch();
+  const { data } = useSelector((store) => store.adminReducers);
+  console.log(data);
   const links = [
     {
       title: "dashboard",
@@ -15,6 +20,10 @@ const AdminProducts = () => {
       link: "/admin/products",
     },
   ];
+  useEffect(() => {
+    dispatch(getProducts());
+  }, [dispatch]);
+
   return (
     <>
       <Box ml={"8"}>
@@ -27,13 +36,13 @@ const AdminProducts = () => {
           flexDirection={"column"}
           display={"flex"}
           gap={"10"}
-          color={"white"}
+          // color={"white"}
           w={"100%"}
         >
           <Table>
             <Thead>
               <Tr>
-                <Th>ID</Th>
+                <Th textAlign="center">ID</Th>
                 <Th>Image</Th>
                 <Th>Name</Th>
                 <Th>Price</Th>
@@ -44,9 +53,10 @@ const AdminProducts = () => {
               </Tr>
             </Thead>
             <Tbody>
-              {/* {topProducts?.map((product, i) => (
-        <ProductRow key={i} {...product} />
-      ))} */}
+              {data &&
+                data.map((product) => (
+                  <ProductRow key={product._id} product={product} />
+                ))}
             </Tbody>
           </Table>
         </Box>

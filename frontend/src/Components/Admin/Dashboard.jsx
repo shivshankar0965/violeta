@@ -1,16 +1,6 @@
 import React, { useEffect } from "react";
-import {
-  Box,
-  Flex,
-  Heading,
-  Table,
-  Tbody,
-  Text,
-  Th,
-  Thead,
-  Tr,
-} from "@chakra-ui/react";
-import { useSelector, useDispatch } from "react-redux";
+import { Box, Flex, Table, Tbody, Text, Th, Thead, Tr } from "@chakra-ui/react";
+import { useDispatch } from "react-redux";
 import { getOrders } from "../../redux/admin/admin.actions";
 import BreadCrumbUtils from "../../utils/BreadCrumb";
 import { Chart } from "react-google-charts";
@@ -19,7 +9,7 @@ const Dashboard = () => {
   const dispatch = useDispatch();
   useEffect(() => {
     dispatch(getOrders());
-  }, []);
+  }, [dispatch]);
 
   const links = [
     {

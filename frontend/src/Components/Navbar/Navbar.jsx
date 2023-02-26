@@ -1332,7 +1332,8 @@ const Navbar = () => {
               <Link to="/">
                 <img
                   style={{ width: "100px", height: "25px" }}
-                  src="https://media6.ppl-media.com/static/purplle/img/purplle-logo-1.svg"
+                  // src="https://media6.ppl-media.com/static/purplle/img/purplle-logo-1.svg"
+                  src={logo}
                   alt="logo"
                 />
               </Link>
@@ -1365,7 +1366,7 @@ const Navbar = () => {
                     <DrawerHeader mt={12}>
                       <Link to="/login" onClick={onClose2}>
                         <Button
-                          bgColor="black"
+                            bgColor="#7427e4"
                           color="white"
                           colorScheme="none"
                         >

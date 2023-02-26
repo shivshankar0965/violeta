@@ -1,14 +1,6 @@
-import {
-  Box,
-  Button,
-  Flex,
-  Image,
-  Select,
-  Stack,
-  Text,
-} from "@chakra-ui/react";
+import { Box, Button, Flex, Image, Stack, Text } from "@chakra-ui/react";
 import React, { useState } from "react";
-import styles from "./ProductCard.css";
+// import styles from "./ProductCard.css";
 
 const ProductCard = ({ image, name, price }) => {
   const [data, setData] = useState(
@@ -17,9 +9,10 @@ const ProductCard = ({ image, name, price }) => {
   const [qty, setQty] = useState(1);
   const handleRemove = (name) => {
     let filteredData = data.filter((el) => {
-      if (el.name != name) {
+      if (el.name !== name) {
         return el;
       }
+      return null;
     });
     setData(filteredData);
     localStorage.setItem("cart", JSON.stringify(filteredData));
@@ -34,10 +27,13 @@ const ProductCard = ({ image, name, price }) => {
           <Text>{name}</Text>
           <Text>
             Qty:
-            <select value={qty} onChange={(e)=>{
-                setQty(+(e.target.value))
-                }}>
-              <option value='1'>1</option>
+            <select
+              value={qty}
+              onChange={(e) => {
+                setQty(+e.target.value);
+              }}
+            >
+              <option value="1">1</option>
               <option value="2">2</option>
               <option value="3">3</option>
               <option value="4">4</option>

@@ -7,11 +7,12 @@ import {
 import thunk from "redux-thunk";
 
 import { reducer as AuthReducer } from "./AuthReducer/reducer";
-import { adminOrderReducers } from "./admin/admin.reducer";
+import { adminReducers, adminUserReducer } from "./admin/admin.reducer";
 const rootReducer = combineReducers({
   //here all reducers will come
-  adminOrderReducers,
+  adminReducers,
   AuthReducer,
+  adminUserReducer,
 });
 
 const composerEnhancer = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;

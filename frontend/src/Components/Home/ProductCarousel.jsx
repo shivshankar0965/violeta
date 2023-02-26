@@ -6,12 +6,12 @@ import "swiper/css/navigation";
 import "swiper/css/pagination";
 import "swiper/css/scrollbar";
 import ProductCard from "./ProductCard";
-import { Box, Heading, Text } from "@chakra-ui/react";
+import { Box, Text } from "@chakra-ui/react";
 import { A11y, Navigation, Pagination, Scrollbar } from "swiper";
 import { useMediaQuery } from "./useMediaQuery";
 
-export default function ProductCarousel ({dataArray,heading})  {
-  const isMd=useMediaQuery(960)
+export default function ProductCarousel({ dataArray, heading }) {
+  const isMd = useMediaQuery(960);
   return (
     <Box mt="50px">
       <Text fontSize="lg" color="#2c414c">
@@ -19,9 +19,9 @@ export default function ProductCarousel ({dataArray,heading})  {
       </Text>
       <Swiper
         spaceBetween={50}
-        slidesPerView={isMd?3:5}
-        onSlideChange={() => console.log("slide change")}
-        onSwiper={(swiper) => console.log(swiper)}
+        slidesPerView={isMd ? 3 : 5}
+        // onSlideChange={() => console.log("slide change")}
+        // onSwiper={(swiper) => console.log(swiper)}
         modules={[Navigation, Pagination, Scrollbar, A11y]}
         navigation
         pagination={{ clickable: true }}
@@ -39,4 +39,4 @@ export default function ProductCarousel ({dataArray,heading})  {
       </Swiper>
     </Box>
   );
-};
+}

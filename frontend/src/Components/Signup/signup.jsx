@@ -7,7 +7,6 @@ import {
   BreadcrumbItem,
   BreadcrumbLink,
   Button,
-  Center,
   Divider,
   FormControl,
   FormLabel,
@@ -20,9 +19,12 @@ import {
   useToast,
 } from "@chakra-ui/react";
 import { ViewIcon, ViewOffIcon } from "@chakra-ui/icons";
-import { useNavigate } from "react-router-dom";
+
 import { register } from "../../redux/AuthReducer/action";
-import { REGISTER_FAILURE, REGISTER_SUCCESS } from "../../redux/AuthReducer/actionTypes";
+import {
+  REGISTER_FAILURE,
+  REGISTER_SUCCESS,
+} from "../../redux/AuthReducer/actionTypes";
 function reducer(state, action) {
   // console.log(action)
   // console.log(state)
@@ -52,51 +54,51 @@ function reducer(state, action) {
 const initialState = {
   name: "",
   email: "",
-  password: ""
+  password: "",
 };
 
 const SignUp = () => {
   const [showPassword, setShowPassword] = useState(false);
   const [state, setter] = useReducer(reducer, initialState);
-  const navigate = useNavigate();
+
   const dispatch = useDispatch();
 
-  const toast = useToast()
+  const toast = useToast();
   const signupHandler = () => {
     dispatch(register(state)).then((r) => {
       if (r === REGISTER_SUCCESS) {
-          toast({
-            title: 'Account created.',
-            description: "Your account has been successfully created",
-            status: 'success',
-            duration: 5000,
-            isClosable: true,
-            position: 'top'
-          })
-        // navigate("/sign-in", { replace: true });
-      }else if (r === REGISTER_FAILURE) {
         toast({
-          description: "Please enter credentials",
-          status: 'error',
+          title: "Account created.",
+          description: "Your account has been successfully created",
+          status: "success",
           duration: 5000,
           isClosable: true,
-          position: 'top'
-        })
+          position: "top",
+        });
+        // navigate("/sign-in", { replace: true });
+      } else if (r === REGISTER_FAILURE) {
+        toast({
+          description: "Please enter credentials",
+          status: "error",
+          duration: 5000,
+          isClosable: true,
+          position: "top",
+        });
       }
     });
   };
 
   //  console.log(data)
 
-
   return (
-
-    <Box >
+    <Box>
       <Divider orientation="horizontal" />
-      <Box maxW="1150px" mx="auto" px="2" py="10"
-      >
-        <Box  textAlign={{ base: "center", md: "left" }} mb={{ base: 4, md: 10 }}>
-          <Breadcrumb fontWeight="light" fontSize="sm" >
+      <Box maxW="1150px" mx="auto" px="2" py="10">
+        <Box
+          textAlign={{ base: "center", md: "left" }}
+          mb={{ base: 4, md: 10 }}
+        >
+          <Breadcrumb fontWeight="light" fontSize="sm">
             <BreadcrumbItem>
               <BreadcrumbLink href="/">Home</BreadcrumbLink>
             </BreadcrumbItem>
@@ -106,13 +108,13 @@ const SignUp = () => {
           </Breadcrumb>
         </Box>
 
-        <Box px={["2", "0"]} >
+        <Box px={["2", "0"]}>
           <Heading as="h3" size="lg" fontWeight="medium" textAlign="center">
             Sign Up
           </Heading>
         </Box>
         <Divider orientation="horizontal" />
-        <Box  mx="auto" maxW="md" py="6">
+        <Box mx="auto" maxW="md" py="6">
           <Stack spacing={4}>
             <Box background="none" color="none">
               <FormControl isRequired>
@@ -141,36 +143,35 @@ const SignUp = () => {
                     setter({ type: "email", payload: e.target.value })
                   }
                   size="lg"
-                  
                 />
               </FormControl>
             </Box>
-        
+
             <Box>
               <FormControl isRequired>
                 <FormLabel fontWeight="hairline">Password</FormLabel>
                 <InputGroup>
-                <Input
-                 size="lg"
+                  <Input
+                    size="lg"
                     focusBorderColor="black"
                     errorBorderColor="red.300"
-                  type={showPassword ? "text" : "password"}
-                  value={state.password}
-                  onChange={(e) =>
-                    setter({ type: "password", payload: e.target.value })
-                  }
-                />
-                <InputRightElement h={"full"}>
-                  <Button
-                    variant={"ghost"}
-                    onClick={() =>
-                      setShowPassword((showPassword) => !showPassword)
+                    type={showPassword ? "text" : "password"}
+                    value={state.password}
+                    onChange={(e) =>
+                      setter({ type: "password", payload: e.target.value })
                     }
-                  >
-                    {showPassword ? <ViewIcon /> : <ViewOffIcon />}
-                  </Button>
-                </InputRightElement>
-              </InputGroup>
+                  />
+                  <InputRightElement h={"full"}>
+                    <Button
+                      variant={"ghost"}
+                      onClick={() =>
+                        setShowPassword((showPassword) => !showPassword)
+                      }
+                    >
+                      {showPassword ? <ViewIcon /> : <ViewOffIcon />}
+                    </Button>
+                  </InputRightElement>
+                </InputGroup>
               </FormControl>
             </Box>
           </Stack>
@@ -180,31 +181,26 @@ const SignUp = () => {
               Login
             </Link>
           </Box>
-          <Box display='flex'
-    alignItems='center'
-    justifyContent='center' >
-          <Button
-          
-          alignItems='center'
-    justifyContent='center'
-      width="100%"
-      maxWidth="180px"
-      // colorScheme="#E40980"
-      background="#E40980"
-      onClick={signupHandler}
-      padding="12px"
-      mt="20px"
-      color="#fff"
-      fontSize="1.2rem"
-      
-      _hover={{
-        background: "teal.500",
-      }}
-           >
-            Sign Up
-          </Button>
+          <Box display="flex" alignItems="center" justifyContent="center">
+            <Button
+              alignItems="center"
+              justifyContent="center"
+              width="100%"
+              maxWidth="180px"
+              // colorScheme="#E40980"
+              background="#E40980"
+              onClick={signupHandler}
+              padding="12px"
+              mt="20px"
+              color="#fff"
+              fontSize="1.2rem"
+              _hover={{
+                background: "teal.500",
+              }}
+            >
+              Sign Up
+            </Button>
           </Box>
-         
         </Box>
       </Box>
     </Box>

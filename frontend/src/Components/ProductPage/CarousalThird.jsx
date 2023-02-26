@@ -45,6 +45,10 @@ const CarousalThird = () => {
               <p>{el.off}</p>
               </div>
               </div>
+
+              <div>
+              <button id={Prod_Car.cartButton}>Add to Cart</button>
+              </div>
               
             </div>
           );

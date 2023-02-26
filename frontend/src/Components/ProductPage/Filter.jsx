@@ -1,6 +1,6 @@
 
 import { ChevronDownIcon } from '@chakra-ui/icons'
-import { Box, Button, Grid, Flex, Menu, MenuButton, MenuItem, MenuList, Select } from '@chakra-ui/react'
+import { Box, Button, Grid, Flex, Menu, MenuButton, MenuItem, MenuList } from '@chakra-ui/react'
 import React from 'react'
 
 const Filter = () => {
@@ -18,10 +18,10 @@ const Filter = () => {
                 <Box>
                     <Menu >
                         <MenuButton bg="white" as={Button} rightIcon={<ChevronDownIcon />}>
-                            Brands 
+                            Brands
                         </MenuButton>
                         <MenuList  >
-                            <MenuItem bg="white" columnGap={"3rem"}>       
+                            <MenuItem bg="white" columnGap={"3rem"}>
                                 <Box >
                                     <input type="checkbox" /><span> Faces Canada</span> <br />
                                     <input type="checkbox" /><span> Maliao</span> <br />
@@ -80,7 +80,7 @@ const Filter = () => {
                 <Box>
                     <Menu>
                         <MenuButton bg="white" as={Button} rightIcon={<ChevronDownIcon />}>
-                            Benefits 
+                            Benefits
                         </MenuButton>
                         <MenuList>
                             <MenuItem bg="white" columnGap={"3rem"}>
@@ -100,7 +100,7 @@ const Filter = () => {
                 <Box>
                     <Menu>
                         <MenuButton bg="white" as={Button} rightIcon={<ChevronDownIcon />}>
-                            Skin Concerns 
+                            Skin Concerns
                         </MenuButton>
                         <MenuList>
                             <MenuItem bg="white" columnGap={"3rem"}>
@@ -124,7 +124,7 @@ const Filter = () => {
                 <Box>
                     <Menu>
                         <MenuButton bg="white" as={Button} rightIcon={<ChevronDownIcon />}>
-                            Skin Type 
+                            Skin Type
                         </MenuButton>
                         <MenuList>
                             <MenuItem bg="white" columnGap={"3rem"}>
@@ -184,12 +184,18 @@ const Filter = () => {
             </Flex>
 
             <Box >
-                <Select placeholder='Sort By Relevance' border={"0px"} >
-                    <option value='option1'>Discount</option>
-                    <option value='option2'>Low to high</option>
-                    <option value='option3'>High to low</option>
-                    <option value='option3'>Rating</option>
-                </Select>
+                <Menu>
+                    <MenuButton as={Button} rightIcon={<ChevronDownIcon />}>
+                        Sort by relevance
+                    </MenuButton>
+                    <MenuList>
+                        <MenuItem>Default</MenuItem>
+                        <MenuItem>Low to High</MenuItem>
+                        <MenuItem>High to low</MenuItem>
+                        <MenuItem>Rating Low to High</MenuItem>
+                        <MenuItem>Rating High to low</MenuItem>
+                    </MenuList>
+                </Menu>
             </Box>
 
         </Flex>

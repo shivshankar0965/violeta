@@ -22,7 +22,7 @@ const CarousalTop = () => {
     },
   };
   return (
-    <div style={{ display: "grid",width:"100%" ,margin:"auto",marginTop:"1rem"}}>
+    <div style={{ display: "grid",width:"100%" ,margin:"auto",marginTop:"6rem"}}>
       <Carousel responsive={responsive}  showDots={true} transitionDuration={1000}>
         {CarousalOne.map((el) => {
           return (

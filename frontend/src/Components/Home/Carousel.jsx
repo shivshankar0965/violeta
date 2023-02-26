@@ -8,14 +8,14 @@ import "swiper/css/scrollbar";
 import { Box, Image } from "@chakra-ui/react";
 import { A11y, Navigation, Pagination, Scrollbar } from "swiper";
 
-export default function Carousel ({dataArray}) {
+export default function Carousel({ dataArray }) {
   return (
     <Box>
       <Swiper
         spaceBetween={50}
         slidesPerView={1}
-        onSlideChange={() => console.log("slide change")}
-        onSwiper={(swiper) => console.log(swiper)}
+        // onSlideChange={() => console.log("slide change")}
+        // onSwiper={(swiper) => console.log(swiper)}
         modules={[Navigation, Pagination, Scrollbar, A11y]}
         navigation
         pagination={{ clickable: true }}
@@ -28,4 +28,4 @@ export default function Carousel ({dataArray}) {
       </Swiper>
     </Box>
   );
-};
+}

@@ -1,22 +1,24 @@
 import "./App.css";
-
 import Allroutes from "./Pages/Allroutes";
-
-
-
-import SignUp from "./Components/Signup/signup";
-import SignIn from "./Components/Login/login";
-
-
+import AdminRoutes from "./Pages/AdminRoutes";
+import { useLocation } from "react-router-dom";
 
 function App() {
-  return (
-    <>
-      <Allroutes />
-        {/* <SignUp/> 
-      <SignIn/>   */}
-    </>
-  );
+  const location = useLocation();
+  let path = location.pathname;
+  if (
+    path === "/admin/dashboard" ||
+    path === "/admin/products" ||
+    path === "/admin/orders" ||
+    path === "/admin/addproduct" ||
+    path === "/admin/orders" ||
+    path === "/admin/users" ||
+    path === "/admin/reviews"
+  ) {
+    return <AdminRoutes />;
+  } else {
+    return <Allroutes />;
+  }
 }
 
 export default App;

@@ -1,7 +1,7 @@
-import { Container, Flex, Image, Stack, Text } from '@chakra-ui/react'
-import React from 'react'
+import { Image, Stack, Text } from "@chakra-ui/react";
+import React from "react";
 
-const ProductCard = ({name,price,image,discount}) => {
+const ProductCard = ({ name, price, image, discount }) => {
   return (
     <Stack>
       <Image
@@ -10,19 +10,18 @@ const ProductCard = ({name,price,image,discount}) => {
         src={image}
       />
       <Text display={name ? "block" : "none"}>{name}</Text>
-    
-          <Text display={price ? "block" : "none"}>{price}</Text>
-        <Text
-          display={price ? "block" : "none"}
-          mt="5px"
-          color="#f07bbb"
-          fontSize="xs"
-        >
-          {`${discount}`}% off
-        </Text>
-      
+
+      <Text display={price ? "block" : "none"}>{price}</Text>
+      <Text
+        display={price ? "block" : "none"}
+        mt="5px"
+        color="#f07bbb"
+        fontSize="xs"
+      >
+        {`${discount}`}% off
+      </Text>
     </Stack>
   );
-}
+};
 
-export default ProductCard
+export default ProductCard;

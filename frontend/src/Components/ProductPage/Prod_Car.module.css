@@ -45,7 +45,7 @@ background-color: white;
 }
 
 #button:hover{
-    border: 1px solid red;
+    /* border: 1px solid red; */
     
     
 }
@@ -57,7 +57,7 @@ background-color: white;
 
 #oneLineDiv>h2{
 font-size: large;
-color:#2C414C
+color:purple
 }
 
 #oneLineDiv>p>s{
@@ -69,6 +69,23 @@ color:#2C414C
     color:#ff147b
   
  }
+
+ #cartButton{
+    background-color: gray;
+    color: white;
+    font-size: large;
+    font-weight: bold;
+    width: 100%;
+    padding: 0.3rem;
+    border-radius: 15px;
+    
+ }
+
+ #cartButton:hover{
+    background-color: purple;
+ }
+
+
 
 
 

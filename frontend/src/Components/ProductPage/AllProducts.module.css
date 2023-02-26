@@ -1,13 +1,15 @@
 .ProductsDiv{
-    border: 1px solid red;
+    /* border: 1px solid red; */
     display: grid;
     grid-template-columns: repeat(4,1fr);
     gap: 1rem;
+    width: 80%;
+    margin: auto;
     
 }
 
 .ProductsDiv>div{
-    border: 1px solid green;
+    border: px solid green;
     box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
     padding: 1rem 2rem;
  

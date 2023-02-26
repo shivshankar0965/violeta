@@ -1,0 +1,208 @@
+{
+  "category": [
+    {
+      "title": "makeup",
+      "subCat1": "face_makeup",
+      "subCat2": "primer"
+    },
+    {
+      "title": "makeup",
+      "subCat1": "face_makeup",
+      "subCat2": "conclear"
+    },
+    {
+      "title": "makeup",
+      "subCat1": "face_makeup",
+      "subCat2": "bb_and_cc_creams"
+    },
+    {
+      "title": "makeup",
+      "subCat1": "face_makeup",
+      "subCat2": "foundation"
+    },
+    {
+      "title": "makeup",
+      "subCat1": "face_makeup",
+      "subCat2": "compact"
+    },
+    {
+      "title": "makeup",
+      "subCat1": "face_makeup",
+      "subCat2": "loose_powder"
+    },
+    {
+      "title": "makeup",
+      "subCat1": "face_makeup",
+      "subCat2": "blush"
+    },
+    {
+      "title": "makeup",
+      "subCat1": "eye_makeup",
+      "subCat2": "eyeliner"
+    },
+    {
+      "title": "makeup",
+      "subCat1": "eye_makeup",
+      "subCat2": "under_eye_conclealers"
+    },
+    {
+      "title": "makeup",
+      "subCat1": "eye_makeup",
+      "subCat2": "eyeshow"
+    },
+    {
+      "title": "makeup",
+      "subCat1": "eye_makeup",
+      "subCat2": "kajal"
+    },
+    {
+      "title": "makeup",
+      "subCat1": "lip_makeup",
+      "subCat2": "lipstick"
+    },
+    {
+      "title": "makeup",
+      "subCat1": "lip_makeup",
+      "subCat2": "liquid_lipstick"
+    },
+    {
+      "title": "makeup",
+      "subCat1": "lip_makeup",
+      "subCat2": "lip_crayon"
+    },
+    {
+      "title": "makeup",
+      "subCat1": "lip_makeup",
+      "subCat2": "lip_liner"
+    },
+    {
+      "title": "makeup",
+      "subCat1": "lip_makeup",
+      "subCat2": "lip_gloss"
+    },
+    {
+      "title": "skin_care",
+      "subCat1": "lip_makeup",
+      "subCat2": "lip_gloss"
+    },
+    {
+      "title": "skin_care",
+      "subCat1": "cleansers",
+      "subCat2": "face_wash"
+    },
+    {
+      "title": "skin_care",
+      "subCat1": "cleansers",
+      "subCat2": "cleanser"
+    },
+    {
+      "title": "skin_care",
+      "subCat1": "cleansers",
+      "subCat2": "scrub_exoliators"
+    },
+    {
+      "title": "skin_care",
+      "subCat1": "cleansers",
+      "subCat2": "makeup_remover"
+    },
+    {
+      "title": "skin_care",
+      "subCat1": "mask",
+      "subCat2": "sheet_mask"
+    },
+
+    {
+      "title": "skin_care",
+      "subCat1": "mask",
+      "subCat2": "face_mask"
+    },
+
+    {
+      "title": "skin_care",
+      "subCat1": "eye_care",
+      "subCat2": "eye_masks_patches"
+    },
+
+    {
+      "title": "skin_care",
+      "subCat1": "eye_care",
+      "subCat2": "eye_serum"
+    },
+    {
+      "title": "skin_care",
+      "subCat1": "eye_care",
+      "subCat2": "eye_serum"
+    },
+    {
+      "title": "hair_care",
+      "subCat1": "shampoo_conditioners",
+      "subCat2": "shampoo"
+    },
+    {
+      "title": "hair_care",
+      "subCat1": "shampoo_conditioners",
+      "subCat2": "dry_shampoo"
+    },
+    {
+      "title": "hair_care",
+      "subCat1": "shampoo_conditioners",
+      "subCat2": "conditioner"
+    },
+    {
+      "title": "hair_care",
+      "subCat1": "nourishment",
+      "subCat2": "hair_oil"
+    },
+    {
+      "title": "hair_care",
+      "subCat1": "nourishment",
+      "subCat2": "hair_serum"
+    },
+    {
+      "title": "hair_care",
+      "subCat1": "nourishment",
+      "subCat2": "hair_spa_mask"
+    },
+    {
+      "title": "men",
+      "subCat1": "shaving_care",
+      "subCat2": "shaving_cream"
+    },
+
+    {
+      "title": "men",
+      "subCat1": "shaving_care",
+      "subCat2": "shaving_cream"
+    },
+    {
+      "title": "men",
+      "subCat1": "shaving_care",
+      "subCat2": "razors_cartridges"
+    },
+    {
+      "title": "men",
+      "subCat1": "shaving_care",
+      "subCat2": "aftershaves"
+    },
+    {
+      "title": "men",
+      "subCat1": "skin_care",
+      "subCat2": "face_wash"
+    },
+    {
+      "title": "men",
+      "subCat1": "skin_care",
+      "subCat2": "moisturizers"
+    },
+    {
+      "title": "men",
+      "subCat1": "skin_care",
+      "subCat2": "face_cream"
+    },
+    {
+      "title": "men",
+      "subCat1": "skin_care",
+      "subCat2": "face_mask"
+    }
+  ]
+}

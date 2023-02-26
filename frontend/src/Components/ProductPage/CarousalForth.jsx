@@ -46,6 +46,11 @@ const CarousalForth = () => {
               <button>Add To Cart</button>
               </div>
               </div>
+
+              <div>
+              <button id={Prod_Car.cartButton}>Add to Cart</button>
+              </div>
+
             </div>
           );
         })}

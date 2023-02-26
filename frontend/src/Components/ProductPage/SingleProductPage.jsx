@@ -1,42 +1,63 @@
-import React from 'react'
+
+import { useState } from "react"
 import style from "../ProductPage/SingleProductPage.module.css"
 
 
 
 
+
 const SingleProductPage = () => {
+
+
+  let singleData = JSON.parse(localStorage.getItem("product"))
+  console.log(`hbfdjngebsdfhjdegf${singleData}`)
+
+  const { description, price, images, strikedPrice } = singleData
+
+const [curr, setCurrent] = useState(0);
+
+
+
+
   return (
     <div className={style.SingleDiv}>
       <div class={style.left}>
         <div class={style.left_first}>
-          <img src="https://media6.ppl-media.com/tr:h-75,w-75,c-at_max,dpr-2/static/img/product/270491/insight-cosmetics-pore-minimizer-primer-30ml_7_display_1674203745_c9692978.jpg" alt="" />
-          <img src="https://media6.ppl-media.com/tr:h-75,w-75,c-at_max,dpr-2/static/img/product/270491/insight-cosmetics-pore-minimizer-primer-30ml_9_display_1674203747_7159b9fb.jpg" alt="" />
-          <img src="https://media6.ppl-media.com/tr:h-75,w-75,c-at_max,dpr-2/static/img/product/270491/insight-cosmetics-pore-minimizer-primer-30ml_8_display_1674203696_4bb5182c.jpg" alt="" />
-          <img src="https://media6.ppl-media.com/tr:h-75,w-75,c-at_max,dpr-2/static/img/product/270491/insight-cosmetics-pore-minimizer-primer-30ml_8_display_1674203696_4bb5182c.jpg" alt="" />
+          
+          {
+           images.map((el,i)=>(
+            <img onClick={()=>setCurrent(i)} key={i} src={el.url} alt="" width={"100%"} height={"90%"} />
+           ))
+          }
+         
         </div>
-        <div>
-          <img src="https://media6.ppl-media.com/tr:h-75,w-75,c-at_max,dpr-2/static/img/product/270491/insight-cosmetics-pore-minimizer-primer-30ml_8_display_1674203696_4bb5182c.jpg" alt="" width={"500px"} />
+        <div className={style.ImageContainer}>
+          <img src={images[curr].url} alt="" width={"500px"} />
         </div>
 
       </div>
       <div class={style.right}>
-        <h1>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ratione, aliquid.</h1>
-        <h1>price</h1>
-        <h1>rating</h1>
-        <button>Add to Cart</button>
+        <h1>{description}</h1>
+        <div class={style.info}>
+        <h1 id={style.price}>₹{price}</h1>
+        <h1  id={style.strikedPrice}><s>{strikedPrice}</s></h1>
+        <p  id={style.off}>{`${(((strikedPrice - price) / strikedPrice) * 100).toFixed(0)}% off`}</p>
+        </div>
         
+        <button>Add to Cart</button>
+
 
         <div class={style.extraa}>
-          <div style={{display:"flex",gap:"2rem"}}><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRB9sX0bA2LHXRGVYiQY4GbsSweerEraya5tA&usqp=CAU" alt="truck" width={"10%"} /><span>2-3 business days delivery</span></div>
-          <div style={{display:"flex",gap:"2rem"}}><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRTnuc0Ibtm459SgYSiqk1PtFYIxAsVrcNaWA&usqp=CAU" alt="truck" width={"10%"} /><span>100% Genuine Products</span></div>
-          <div style={{display:"flex",gap:"2rem"}}><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQminS9JStVAB9HVFDlIbDg4Mo_KXiUv2naGw&usqp=CAU" alt="truck" width={"10%"} /><span>Return in 15 days</span></div>
-          <div style={{display:"flex",gap:"2rem"}}><img src="https://thumbs.dreamstime.com/b/wallet-icon-card-cash-vector-illustration-eps-220137972.jpg" alt="truck" width={"10%"} /><span>Free COD above 499</span></div>
-          
-         
-       
-          
+          <div style={{ display: "flex", gap: "2rem" }}><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRB9sX0bA2LHXRGVYiQY4GbsSweerEraya5tA&usqp=CAU" alt="truck" width={"10%"} /><span>2-3 business days delivery</span></div>
+          <div style={{ display: "flex", gap: "2rem" }}><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRTnuc0Ibtm459SgYSiqk1PtFYIxAsVrcNaWA&usqp=CAU" alt="truck" width={"10%"} /><span>100% Genuine Products</span></div>
+          <div style={{ display: "flex", gap: "2rem" }}><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQminS9JStVAB9HVFDlIbDg4Mo_KXiUv2naGw&usqp=CAU" alt="truck" width={"10%"} /><span>Return in 15 days</span></div>
+          <div style={{ display: "flex", gap: "2rem" }}><img src="https://thumbs.dreamstime.com/b/wallet-icon-card-cash-vector-illustration-eps-220137972.jpg" alt="truck" width={"10%"} /><span>Free COD above 499</span></div>
+
+
+
+
         </div>
-       
+
       </div>
 
       {/* extraa information */}
@@ -48,7 +69,7 @@ const SingleProductPage = () => {
 export default SingleProductPage
 
 
-// truck 
+// truck
 //https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRB9sX0bA2LHXRGVYiQY4GbsSweerEraya5tA&usqp=CAU
 
 //shield

@@ -5,7 +5,9 @@ const register = (payload) => (dispatch) => {
   dispatch({ type: types.REGISTER_REQUEST });
   console.log(payload);
   return axios
-    .post("http://localhost:4000/api/v1/register", payload)        
+    .post(`${process.env.REACT_APP_BASE_URL}/api/v1/register`, payload, {
+      headers: { "Content-Type": "application/json" },
+    })
     .then((r) => {
       dispatch({ type: types.REGISTER_SUCCESS, payload: r.data });
       return types.REGISTER_SUCCESS;
@@ -19,10 +21,11 @@ const register = (payload) => (dispatch) => {
 const login = (params) => (dispatch) => {
   dispatch({ type: types.LOGIN_REQUEST });
   return axios
-    .post("http://localhost:4000/api/v1/login", params)    
+    .post(`${process.env.REACT_APP_BASE_URL}/api/v1/login`, params, {
+      headers: { "Content-Type": "application/json" },
+    })
     .then((r) => {
       dispatch({ type: types.LOGIN_SUCCESS, payload: r.data });
-      console.log(r.data)
       return types.LOGIN_SUCCESS;
     })
     .catch((e) => {
@@ -31,4 +34,4 @@ const login = (params) => (dispatch) => {
     });
 };
 
-export { register,login };
+export { register, login };

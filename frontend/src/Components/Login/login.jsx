@@ -135,7 +135,7 @@ const SignIn = () => {
           </Stack>
           <Box paddingTop={{base: "30px", lg: "50px"}} textAlign="center">
             New User?{" "}
-            <Link color="teal.500" href="sign-up">
+            <Link color="rgb(228,9,128)" href="sign-up">
               Sign Up
             </Link>
           </Box>

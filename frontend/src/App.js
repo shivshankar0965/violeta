@@ -12,11 +12,11 @@ import SignIn from "./Components/Login/login";
 function App() {
   return (
     <>
-      <Allroutes />
+      {/* <Allroutes /> */}
 
       
-
-      <CarousalTop/>
+{/* 
+      <CarousalTop/> */}
        <SignUp/> 
      <SignIn/> 
     </>

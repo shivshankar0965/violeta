@@ -174,9 +174,9 @@ const SignUp = () => {
               </FormControl>
             </Box>
           </Stack>
-          <Box mt="6" textAlign="center">
+          <Box mt="6" textAlign="center" >
             Already a user?{" "}
-            <Link color="teal.500" href="sign-in">
+            <Link  href="sign-in" color="rgb(228,9,128)">
               Login
             </Link>
           </Box>

@@ -4,7 +4,7 @@ import BreadCrumbUtils from "../../utils/BreadCrumb";
 import Headings from "./Headings";
 import { useDispatch, useSelector } from "react-redux";
 import { getUsers } from "../../redux/admin/admin.actions";
-import { addToCart } from "../../redux/cart/cart.actions";
+
 import UserRow from "./UserRow";
 const Users = () => {
   const dispatch = useDispatch();

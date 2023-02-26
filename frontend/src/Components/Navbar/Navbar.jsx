@@ -18,7 +18,6 @@ import {
   useDisclosure,
   useToast,
   DrawerFooter,
-  Container,
 } from "@chakra-ui/react";
 
 import "./Navbar.css";
@@ -28,7 +27,7 @@ import { BsMinecartLoaded } from "react-icons/bs";
 import { CiSearch } from "react-icons/ci";
 import { HiMenu } from "react-icons/hi";
 import { BsHeart } from "react-icons/bs";
-import logo from "../../Assets/violeta_logo.jpeg";
+// import logo from "../../Assets/violeta_logo.jpeg";
 import { useNavigate, Link } from "react-router-dom";
 import { useSelector } from "react-redux";
 const Navbar = () => {
@@ -1363,7 +1362,7 @@ const Navbar = () => {
                       display="flex"
                       gap={12}
                     >
-                      <Text> {isAuth ? "Hii " + "Shiv" : "Account"}</Text>
+                      <Text> {isAuth ? "Hii Shiv" : "Account"}</Text>
                       <Button bgColor="black" color="white" colorScheme="none">
                         Logout
                       </Button>

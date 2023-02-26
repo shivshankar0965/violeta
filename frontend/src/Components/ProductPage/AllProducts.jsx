@@ -4,8 +4,7 @@ import ProductCard from "./ProductCard";
 import STYLE from "../ProductPage/AllProducts.module.css";
 import { Link } from "react-router-dom";
 import { Box, SkeletonCircle, SkeletonText } from "@chakra-ui/react";
-import { useDispatch, useSelector } from "react-redux";
-import { addToCart } from "../../redux/cart/cart.actions";
+
 // import  {useDispatch, useSelector} from 'react-redux'
 // import { getProducts } from '../../redux/admin/admin.actions'
 
@@ -13,7 +12,6 @@ const AllProducts = () => {
   const [data, setData] = useState([]);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(false);
-  const dispatch = useDispatch();
 
   // const newData = useSelector((store) => store.adminReducer.data);
   const getData = () => {
@@ -51,7 +49,6 @@ const AllProducts = () => {
 
   const handleStorage = (el) => {
     localStorage.setItem("product", JSON.stringify(el));
-    dispatch(addToCart(el));
   };
 
   return (

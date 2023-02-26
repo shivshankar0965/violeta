@@ -1,4 +1,4 @@
-import { ADD_CART, REMOVE_CART } from "./cart.types";
+import { ADD_CART } from "./cart.types";
 
 export const addToCart = (product) => async (dispatch) => {
   const cart = localStorage.getItem("cart")

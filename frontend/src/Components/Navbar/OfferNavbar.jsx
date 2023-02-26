@@ -1,3 +1,4 @@
+
 import React from "react";
 import "./OfferNavbar.css";
 import { RxCross1 } from "react-icons/rx";

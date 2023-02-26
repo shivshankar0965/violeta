@@ -27,7 +27,7 @@ const CarousalTop = () => {
         display: "grid",
         width: "100%",
         margin: "auto",
-        marginTop: "10rem",
+        marginTop: "6rem",
       }}
     >
       <Carousel

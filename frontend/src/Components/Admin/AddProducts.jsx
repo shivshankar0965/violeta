@@ -8,6 +8,7 @@ import {
   Select,
   Button,
   Image,
+  useToast,
 } from "@chakra-ui/react";
 import { useDispatch } from "react-redux";
 import cat from "./cat.json";
@@ -17,6 +18,7 @@ import { addProducts } from "../../redux/admin/admin.actions";
 const AddProducts = () => {
   const dispatch = useDispatch();
   const [imageUrl, setImageUrl] = useState("");
+  const toast = useToast();
   // const [images, setImages] = useState([]);
   const [productData, setProductData] = useState({
     images: [],
@@ -27,6 +29,9 @@ const AddProducts = () => {
     subcat1: "",
     subcat2: "",
     strikedPrice: "",
+    offer: "",
+    freeGift: "",
+    stock: "",
   });
   const addImageHandler = () => {
     // setImages([...images, { url: imageUrl }]);
@@ -38,14 +43,13 @@ const AddProducts = () => {
   };
 
   const changeHandler = (e) => {
-    console.log(e.target);
     let { name, value, type } = e.target;
     setProductData({
       ...productData,
       [name]: type === "number" ? Number(value) : value,
     });
   };
-  console.log(productData);
+
   const links = [
     {
       title: "dashboard",
@@ -58,6 +62,14 @@ const AddProducts = () => {
   ];
   const submitHandler = () => {
     dispatch(addProducts(productData));
+    toast({
+      title: "Product created.",
+      description: "We've created product for you.",
+      status: "success",
+      duration: 9000,
+      isClosable: true,
+    });
+    window.location.reload(false);
   };
   const {
     name,
@@ -66,7 +78,9 @@ const AddProducts = () => {
     category,
     description,
     subcat1,
-
+    offer,
+    freeGift,
+    stock,
     strikedPrice,
   } = productData;
 
@@ -176,7 +190,36 @@ const AddProducts = () => {
                 ))}
               </Select>
             </Box>
-
+            <Box>
+              <FormLabel>Offer </FormLabel>
+              <Input
+                name="offer"
+                onChange={changeHandler}
+                value={offer}
+                placeholder="offer"
+                type="number"
+              />
+            </Box>
+            <Box>
+              <FormLabel>Free Gift </FormLabel>
+              <Input
+                name="freeGift"
+                onChange={changeHandler}
+                value={freeGift}
+                placeholder="Free gift vouchers"
+                type="number"
+              />
+            </Box>
+            <Box>
+              <FormLabel>Stock </FormLabel>
+              <Input
+                name="stock"
+                onChange={changeHandler}
+                value={stock}
+                placeholder="stock"
+                type="number"
+              />
+            </Box>
             <Box>
               <FormLabel>Image Url</FormLabel>
               <Input

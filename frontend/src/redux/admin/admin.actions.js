@@ -49,15 +49,12 @@ export const addProducts = (product) => async (dispatch) => {
     dispatch({
       type: ADMIN_ADD_PRODUCT_REQUEST,
     });
-    const config = {
-      headers: {
-        "Content-Type": "application/json",
-      },
-    };
+
     const { data } = await axios.post(
-      `${process.env.REACT_APP_BASE_URL}api/v1/product/new`,
+      `/api/v1/product/new`,
       product,
-      config
+
+      { headers: { "Content-Type": "application/json" } }
     );
     dispatch({ type: ADMIN_ADD_PRODUCT_SUCCESS, payload: data.user });
   } catch (err) {

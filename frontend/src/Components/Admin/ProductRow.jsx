@@ -1,10 +1,14 @@
 import React from "react";
-import { Tr, Td, Button } from "@chakra-ui/react";
+import { Tr, Td, Button, Box, Image } from "@chakra-ui/react";
 const ProductRow = ({ product }) => {
   return (
     <Tr>
       <Td>{product._id}</Td>
-      <Td>{product.images[0].url}</Td>
+      <Td>
+        <Box maxW={"100px"}>
+          <Image src={product.images[0].url} />
+        </Box>
+      </Td>
       <Td>{product.name}</Td>
       <Td>{`₹${product.price}`}</Td>
       <Td>{product.category}</Td>

@@ -52,6 +52,5 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
-  },
-  "proxy": "http://192.168.12.233:4000"
+  }
 }

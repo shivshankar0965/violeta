@@ -31,7 +31,9 @@ export const getOrders = () => async (dispatch) => {
 export const getProducts = () => async (dispatch) => {
   try {
     dispatch({ type: ADMIN_PRODUCT_REQUEST });
-    const { data } = await axios.get(`/api/v1/products`);
+    const { data } = await axios.get(
+      `${process.env.REACT_APP_BASE_URL}/api/v1/products`
+    );
     dispatch({
       type: ADMIN_PRODUCT_SUCCESS,
       payload: data.products,
@@ -51,7 +53,7 @@ export const addProducts = (product) => async (dispatch) => {
     });
 
     const { data } = await axios.post(
-      `/api/v1/product/new`,
+      `${process.env.REACT_APP_BASE_URL}/api/v1/product/new`,
       product,
 
       { headers: { "Content-Type": "application/json" } }

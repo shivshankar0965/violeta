@@ -2,7 +2,6 @@ import { Td, Tr, Button } from "@chakra-ui/react";
 import React from "react";
 
 const UserRow = ({ user }) => {
-  console.log(user);
   return (
     <Tr>
       <Td>{user._id}</Td>

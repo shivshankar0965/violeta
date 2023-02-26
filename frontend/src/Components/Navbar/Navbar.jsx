@@ -17,10 +17,10 @@ import {
   Text,
   useDisclosure,
   useToast,
-  Link,
   DrawerFooter,
   Container,
 } from "@chakra-ui/react";
+
 import "./Navbar.css";
 import { CiFaceSmile } from "react-icons/ci";
 import { BiMenuAltRight } from "react-icons/bi";
@@ -29,15 +29,29 @@ import { CiSearch } from "react-icons/ci";
 import { HiMenu } from "react-icons/hi";
 import { BsHeart } from "react-icons/bs";
 import logo from "../../Assets/violeta_logo.jpeg";
-
-const isAuth = false;
+import { useNavigate, Link } from "react-router-dom";
+import { useSelector } from "react-redux";
 const Navbar = () => {
+  const toast = useToast();
+  const { cart } = useSelector((store) => store.cart);
+  const { isAuth } = useSelector((store) => store.AuthReducer);
   const { isOpen, onOpen, onClose } = useDisclosure();
   const {
     isOpen: isOpen2,
     onOpen: onOpen2,
     onClose: onClose2,
   } = useDisclosure();
+  const navigate = useNavigate();
+  const logoutHandler = () => {
+    localStorage.removeItem("token");
+    toast({
+      title: "User Logged out successfully.",
+      description: "We've  logged you out.",
+      status: "success",
+      duration: 9000,
+      isClosable: true,
+    });
+  };
   return (
     <div>
       <OfferNavbar />(
@@ -102,11 +116,11 @@ const Navbar = () => {
               </DrawerContent>
             </Drawer>
 
-            <Box>
+            <Box onClick={() => navigate("/")}>
               <Link to="/">
                 <Image
                   className="logo"
-                  src="https://media6.ppl-media.com/static/purplle/img/purplle-logo-1.svg"
+                  src="./violetanew_logo.jpeg"
                   // src={logo}
                   alt="logo"
                 />
@@ -125,7 +139,7 @@ const Navbar = () => {
                 <BsHeart size="2em" />
               </div>
               <div id="dropdown-account">
-                <div>
+                <div onClick={() => navigate("/login")}>
                   <Link
                     to="/login"
                     style={{
@@ -135,7 +149,7 @@ const Navbar = () => {
                     }}
                   >
                     <CiFaceSmile size="2.6em" />
-                    <Text>{isAuth ? "username" : <BiMenuAltRight />}</Text>
+                    <Text>{isAuth ? "Shiv Shankar" : <BiMenuAltRight />}</Text>
                   </Link>
                 </div>
                 <div id="dropdown-account-content">
@@ -145,6 +159,7 @@ const Navbar = () => {
                       w="full"
                       bgColor="black"
                       borderRadius={0}
+                      onClick={logoutHandler}
                     >
                       LOGOUT
                     </Button>
@@ -160,7 +175,7 @@ const Navbar = () => {
                       </Button>
                     </Link>
                   )}
-                  <Link to="/signup">
+                  <Link to="/register">
                     <Button
                       colorScheme="none"
                       mt={4}
@@ -201,14 +216,14 @@ const Navbar = () => {
                   >
                     <div id="cart-icon">
                       <BsMinecartLoaded size="2em" />
-                      <p className="cartValue">{"cartItems.length"}</p>
+                      <p className="cartValue">{cart.length}</p>
                     </div>
 
                     {/* <Text>Cart</Text> */}
                   </div>
                 </Link>
                 <div class="dropdown-content">
-                  <p>{`There are currently ${"cartItems.length"} items in your cart.`}</p>
+                  <p>{`There are currently ${cart.length} items in your cart.`}</p>
                 </div>
               </div>
             </div>
@@ -260,25 +275,25 @@ const Navbar = () => {
                           gap: "10px",
                         }}
                       >
-                        <Link to="">
+                        <Link to="/products">
                           <p>Primer</p>
                         </Link>
-                        <Link to="">
+                        <Link to="/products">
                           <p>Concealer</p>
                         </Link>
-                        <Link to="">
+                        <Link to="/products">
                           <p>BB & CC Cream</p>
                         </Link>
-                        <Link to="">
+                        <Link to="/products">
                           <p>Foundation</p>
                         </Link>
-                        <Link to="">
+                        <Link to="/products">
                           <p>Compact</p>
                         </Link>
-                        <Link to="">
+                        <Link to="/products">
                           <p>Loose Powder</p>
                         </Link>
-                        <Link to="">
+                        <Link to="/products">
                           <p>Blush</p>
                         </Link>
                         <Link to="">
@@ -1324,7 +1339,7 @@ const Navbar = () => {
               <Link to="/">
                 <img
                   style={{ width: "100px", height: "25px" }}
-                  src="https://media6.ppl-media.com/static/purplle/img/purplle-logo-1.svg"
+                  src="./violetanew_logo.jpeg"
                   alt="logo"
                 />
               </Link>
@@ -1348,7 +1363,7 @@ const Navbar = () => {
                       display="flex"
                       gap={12}
                     >
-                      <Text> {isAuth ? "Hii " + "username" : "Account"}</Text>
+                      <Text> {isAuth ? "Hii " + "Shiv" : "Account"}</Text>
                       <Button bgColor="black" color="white" colorScheme="none">
                         Logout
                       </Button>
@@ -1364,7 +1379,7 @@ const Navbar = () => {
                           Login
                         </Button>
                       </Link>
-                      <Link to="/signup" onClick={onClose2}>
+                      <Link to="/register" onClick={onClose2}>
                         <Button
                           variant="outline"
                           border=" 1px solid black"
@@ -1379,10 +1394,10 @@ const Navbar = () => {
 
                   <DrawerBody>
                     <Box display="flex" flexDirection="column" gap="20px">
-                      <Link to="" onClick={onClose2}>
+                      <Link to="/products" onClick={onClose2}>
                         Makeup
                       </Link>
-                      <Link to="" onClick={onClose2}>
+                      <Link to="/products" onClick={onClose2}>
                         Skin Care
                       </Link>
                       <Link to="" onClick={onClose2}>
@@ -1431,7 +1446,7 @@ const Navbar = () => {
                 <div id="cart-icon">
                   <Link to="/cart">
                     <BsMinecartLoaded color="#6b3293" size="1.2em" />
-                    <p className="cartValue">{"cartItems.length"}</p>
+                    <p className="cartValue">{cart.length}</p>
                   </Link>
                 </div>
               </div>

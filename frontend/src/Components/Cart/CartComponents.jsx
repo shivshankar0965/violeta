@@ -28,7 +28,7 @@ const CartComponents = () => {
     setTotal(sum);
   }, [data]);
   return (
-    <Center mt="100px" p="20px">
+    <Center mt="180px" p="20px">
       <Stack direction={isMd ? "column" : "row"} gap="20px">
         <Stack gap="20px">
           <Flex
@@ -46,7 +46,7 @@ const CartComponents = () => {
           <Text fontSize="xl">My Cart ({data.length})</Text>
           {data.map((item) => (
             <ProductCard
-              image={item.image}
+              image={item.images}
               name={item.name}
               price={item.price}
             />

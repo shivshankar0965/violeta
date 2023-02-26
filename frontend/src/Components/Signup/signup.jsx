@@ -91,7 +91,7 @@ const SignUp = () => {
   //  console.log(data)
 
   return (
-    <Box>
+    <Box mt="6rem">
       <Divider orientation="horizontal" />
       <Box maxW="1150px" mx="auto" px="2" py="10">
         <Box

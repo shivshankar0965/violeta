@@ -1,4 +1,14 @@
-import { Button, Modal, ModalBody, ModalCloseButton, ModalContent, ModalFooter, ModalHeader, ModalOverlay, useDisclosure } from "@chakra-ui/react";
+import {
+  Button,
+  Modal,
+  ModalBody,
+  ModalCloseButton,
+  ModalContent,
+  ModalFooter,
+  ModalHeader,
+  ModalOverlay,
+  useDisclosure,
+} from "@chakra-ui/react";
 import { useState } from "react";
 import { Step, Stepper } from "react-form-stepper";
 import PaymentMethod from "./PaymentMethod";
@@ -7,14 +17,14 @@ import Success from "./Success";
 
 export default function PaymentModal() {
   const { isOpen, onOpen, onClose } = useDisclosure();
-  const [step,setStep]=useState(0)
+  const [step, setStep] = useState(0);
   return (
     <>
       <Button bgColor="#e40980" color="white" onClick={onOpen}>
         Place Order
       </Button>
 
-      <Modal isOpen={isOpen} onClose={onClose}>
+      <Modal mt="8rem" isOpen={isOpen} onClose={onClose}>
         <ModalOverlay />
         <ModalContent>
           <ModalHeader>Place Your Order</ModalHeader>
@@ -32,7 +42,13 @@ export default function PaymentModal() {
               <Step label="Payment Method" />
               <Step label="Status" />
             </Stepper>
-            {step===0?<ShippingForm />:step===1?<PaymentMethod />:<Success />}
+            {step === 0 ? (
+              <ShippingForm />
+            ) : step === 1 ? (
+              <PaymentMethod />
+            ) : (
+              <Success />
+            )}
           </ModalBody>
 
           <ModalFooter>

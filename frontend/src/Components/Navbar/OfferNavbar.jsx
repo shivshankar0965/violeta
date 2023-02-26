@@ -1,18 +1,16 @@
-
 import React from "react";
 import "./OfferNavbar.css";
 import { RxCross1 } from "react-icons/rx";
 
 const OfferNavbar = () => {
-
-    const closeOfferNav = () => {
-        let v = document.getElementById("offerDiv");
-        if (v.style.display === "none") {
-           v.style.display = "block";
-        } else {
-           v.style.display = "none";
-        }
+  const closeOfferNav = () => {
+    let v = document.getElementById("offerDiv");
+    if (v.style.display === "none") {
+      v.style.display = "block";
+    } else {
+      v.style.display = "none";
     }
+  };
 
   return (
     <div className="OfferNavbar" id="offerDiv">
@@ -24,6 +22,7 @@ const OfferNavbar = () => {
           alignItems: "center",
           marginLeft: "10%",
           letterSpacing: " initial",
+          zIndex: "20000",
         }}
       >
         <div>
@@ -45,7 +44,7 @@ const OfferNavbar = () => {
           <button>DOWNLOAD APP</button>
         </div>
         <div id="cross" onClick={closeOfferNav}>
-          <RxCross1/>
+          <RxCross1 />
         </div>
       </div>
     </div>

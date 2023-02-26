@@ -5,7 +5,7 @@ const register = (payload) => (dispatch) => {
   dispatch({ type: types.REGISTER_REQUEST });
   console.log(payload);
   return axios
-    .post(`${process.env.REACT_APP_BASE_URL}/api/v1/register`, payload, {
+    .post(`https://calm-underwear-lamb.cyclic.app/api/v1/register`, payload, {
       headers: { "Content-Type": "application/json" },
     })
     .then((r) => {
@@ -21,7 +21,7 @@ const register = (payload) => (dispatch) => {
 const login = (params) => (dispatch) => {
   dispatch({ type: types.LOGIN_REQUEST });
   return axios
-    .post(`${process.env.REACT_APP_BASE_URL}/api/v1/login`, params, {
+    .post(`https://calm-underwear-lamb.cyclic.app/api/v1/login`, params, {
       headers: { "Content-Type": "application/json" },
     })
     .then((r) => {

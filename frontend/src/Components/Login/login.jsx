@@ -68,7 +68,7 @@ const SignIn = () => {
   };
 
   return (
-    <Box height="85vh" bg="#ffffff" padding="0px">
+    <Box mt="7rem" height="85vh" bg="#ffffff" padding="0px">
       <Divider orientation="horizontal" />
       <Box
         width={{ base: "90%", sm: "80%", md: "70%", lg: "60%" }}

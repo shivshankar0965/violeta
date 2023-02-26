@@ -1,8 +1,14 @@
 import React from "react";
 import { Tr, Td, Button, Box, Image } from "@chakra-ui/react";
+import { useDispatch } from "react-redux";
+import { addToCart } from "../../redux/cart/cart.actions";
 const ProductRow = ({ product }) => {
+  const dispatch = useDispatch();
+  const handleAddtoCart = (user) => {
+    dispatch(addToCart(user));
+  };
   return (
-    <Tr>
+    <Tr onClick={() => handleAddtoCart(product)}>
       <Td>{product._id}</Td>
       <Td>
         <Box maxW={"100px"}>

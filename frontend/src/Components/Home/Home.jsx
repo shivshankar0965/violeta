@@ -1,14 +1,32 @@
 import { Box, Image } from "@chakra-ui/react";
 import React from "react";
 import Carousel from "./Carousel";
-import { brandDiscounts, brandImages, brandImages2, brandImages3, brandImages4, brandImages5, brandImages6, categoryImages, comboDeals, discountCarousel, discountedProducts, dummy, dummy2, lipsticks, midBanner, products, topBanner } from "./data";
+import {
+  brandDiscounts,
+  brandImages,
+  brandImages2,
+  brandImages3,
+  brandImages4,
+  brandImages5,
+  brandImages6,
+  categoryImages,
+  comboDeals,
+  discountCarousel,
+  discountedProducts,
+  dummy,
+  dummy2,
+  lipsticks,
+  midBanner,
+  products,
+  topBanner,
+} from "./data";
 import ImageGrid from "./ImageGrid";
 import ProductCarousel from "./ProductCarousel";
 
 const Home = () => {
   return (
-    <Box w={["90%","80%","65%"]} m="auto">
-      <Box mt="50px">
+    <Box w={["90%", "80%", "65%"]} mt="6" m="auto">
+      <Box mt={["80px", "70px", "100px", "180px"]}>
         <Carousel dataArray={topBanner} />
       </Box>
       <Box mt="50px">

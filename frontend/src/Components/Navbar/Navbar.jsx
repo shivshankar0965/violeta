@@ -28,7 +28,7 @@ import { BsMinecartLoaded } from "react-icons/bs";
 import { CiSearch } from "react-icons/ci";
 import { HiMenu } from "react-icons/hi";
 import { BsHeart } from "react-icons/bs";
-import logo from "../../Assets/violeta_logo.jpeg";
+import logo from "../../Assets/violeta1.png";
 
 const isAuth = false;
 const Navbar = () => {
@@ -108,8 +108,8 @@ const Navbar = () => {
               <Link to="/">
                 <Image
                   className="logo"
-                  src="https://media6.ppl-media.com/static/purplle/img/purplle-logo-1.svg"
-                  // src={logo}
+                  // src="https://media6.ppl-media.com/static/purplle/img/purplle-logo-1.svg"
+                  src={logo}
                   alt="logo"
                 />
               </Link>

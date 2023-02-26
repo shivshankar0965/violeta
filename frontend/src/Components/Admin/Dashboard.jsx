@@ -20,7 +20,7 @@ const Dashboard = () => {
   const pou = [
     {
       title: "Products",
-      quantity: 9,
+      quantity: 10,
       bg: "#d15c5e",
     },
     {
@@ -30,7 +30,7 @@ const Dashboard = () => {
     },
     {
       title: "Users",
-      quantity: 5,
+      quantity: 2,
       bg: "#5197c2",
     },
   ];
@@ -66,7 +66,7 @@ const Dashboard = () => {
             fontWeight={"medium"}
           >
             <Text>Total Amount</Text>
-            <Text>{`₹${200}`}</Text>
+            <Text>{`₹${1700}`}</Text>
           </Box>
         </Box>
         <Flex
@@ -114,7 +114,7 @@ const Dashboard = () => {
             height="400px"
             data={[
               ["Task", "Hours per Day"],
-              ["Stock", 11],
+              ["Stock", 8],
               ["Out of Stock", 2],
             ]}
             options={{

@@ -42,8 +42,8 @@ const productSchema = mongoose.Schema({
     type: String,
     required: [true, "Please Enter Product Category"],
   },
-  subcat1:String,
-  subcat2:String,
+  subcat1: String,
+  subcat2: String,
   stock: {
     type: Number,
     required: [true, "Please Enter Product Strock"],
@@ -71,7 +71,7 @@ const productSchema = mongoose.Schema({
       },
     },
   ],
-  user: { type: mongoose.Schema.ObjectId, ref: "User", required: true },
+  // user: { type: mongoose.Schema.ObjectId, ref: "User", required: true },
   createdAt: {
     type: Date,
     default: Date.now(),

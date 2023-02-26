@@ -8,6 +8,9 @@ import {
   ADMIN_ADD_PRODUCT_FAILURE,
   ADMIN_ADD_PRODUCT_SUCCESS,
   ADMIN_ADD_PRODUCT_REQUEST,
+  ADMIN_USERS_FAILURE,
+  ADMIN_USERS_REQUEST,
+  ADMIN_USERS_SUCCESS,
   RESET_ERROR,
 } from "./admin.types";
 
@@ -22,6 +25,7 @@ export const adminReducers = (state = initState, { type, payload }) => {
   switch (type) {
     case ADMIN_ORDER_REQUEST:
     case ADMIN_PRODUCT_REQUEST:
+    case ADMIN_USERS_REQUEST:
       return {
         ...state,
         loading: true,
@@ -29,6 +33,7 @@ export const adminReducers = (state = initState, { type, payload }) => {
 
     case ADMIN_ORDER_FAILURE:
     case ADMIN_PRODUCT_FAILURE:
+    case ADMIN_USERS_FAILURE:
       return {
         ...state,
         loading: false,
@@ -38,6 +43,7 @@ export const adminReducers = (state = initState, { type, payload }) => {
 
     case ADMIN_ORDER_SUCCESS:
     case ADMIN_PRODUCT_SUCCESS:
+    case ADMIN_USERS_SUCCESS:
       return {
         ...state,
         loading: false,

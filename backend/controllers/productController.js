@@ -28,12 +28,11 @@ const addImages = catchAsyncErrors(async (req, res, next) => {
 });
 // get all products
 const getAllProducts = catchAsyncErrors(async (req, res) => {
-  const resultPerPage = 10;
   const productCount = await Product.countDocuments();
   const apiFeature = new ApiFeatures(Product.find(), req.query)
     .search()
-    .filter()
-    .pagination(resultPerPage);
+    .filter();
+
   const products = await apiFeature.query;
   res.status(200).json({ success: true, productCount, products });
 });

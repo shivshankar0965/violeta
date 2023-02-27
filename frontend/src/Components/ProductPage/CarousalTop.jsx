@@ -1,5 +1,5 @@
-import React from 'react'
-import {CarousalOne} from"./DataOfCaraousals/CarousalOne"
+import React from "react";
+import { CarousalOne } from "./DataOfCaraousals/CarousalOne";
 import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
 
@@ -22,12 +22,23 @@ const CarousalTop = () => {
     },
   };
   return (
-    <div style={{ display: "grid",width:"100%" ,margin:"auto",marginTop:"6rem"}}>
-      <Carousel responsive={responsive}  showDots={true} transitionDuration={1000}>
+    <div
+      style={{
+        display: "grid",
+        width: "100%",
+        margin: "auto",
+        marginTop: "6rem",
+      }}
+    >
+      <Carousel
+        responsive={responsive}
+        showDots={true}
+        transitionDuration={1000}
+      >
         {CarousalOne.map((el) => {
           return (
-            <div  key={el.id}>
-              <div style={{ position: "relative", padding: "1rem"}}>
+            <div key={el.id}>
+              <div style={{ position: "relative", padding: "1rem" }}>
                 <img
                   src={el.image}
                   alt="images"
@@ -39,7 +50,6 @@ const CarousalTop = () => {
           );
         })}
       </Carousel>
- 
     </div>
   );
 };

@@ -69,7 +69,7 @@ const AddProducts = () => {
       duration: 9000,
       isClosable: true,
     });
-    window.location.reload(false);
+    // window.location.reload(false);
   };
   const {
     name,

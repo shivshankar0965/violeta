@@ -12,17 +12,16 @@
 
 // export default PrivateRoutes;
 
-
 import { useSelector } from "react-redux";
 import { Navigate, useLocation } from "react-router-dom";
 
-
 const ReqAuth = ({ children }) => {
+  let token = localStorage.getItem("token");
   let location = useLocation();
   let isAuth = useSelector((state) => state.AuthReducer.isAuth);
 
-  if (!isAuth) {
-    return <Navigate to="/sign-in" state={{ from: location }} />;
+  if (!isAuth && !token) {
+    return <Navigate to="/login" state={{ from: location }} />;
   }
   return children;
 };

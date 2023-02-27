@@ -1,5 +1,6 @@
 import React from "react";
 import { Tr, Td, Button, Box, Image } from "@chakra-ui/react";
+
 const ProductRow = ({ product }) => {
   return (
     <Tr>

@@ -21,7 +21,7 @@ const ProductCard = ({ image, name, price }) => {
     <Box className="product" p="10px">
       <Flex gap="20px">
         <Box>
-          <Image h="75px" src={image} />
+          <Image h="75px" src={image[0].url} />
         </Box>
         <Stack>
           <Text>{name}</Text>

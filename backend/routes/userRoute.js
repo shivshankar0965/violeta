@@ -22,14 +22,12 @@ router.route("/password/forgot").post(forgotPassword);
 router.route("/password/reset/:token").put(resetPassword);
 router.route("/logout").get(logout);
 router.route("/me").get(isAuthenticateUser, getUserDetails);
-router.route("/me/update").put(isAuthenticateUser, updateProfile);
-router.route("/password/update").put(isAuthenticateUser, updatePassword);
-router
-  .route("/admin/users")
-  .get(isAuthenticateUser, authorizeRole("admin"), getAllUser);
+router.route("/me/update").put(updateProfile);
+router.route("/password/update").put(updatePassword);
+router.route("/admin/users").get(getAllUser);
 router
   .route("/admin/user/:id")
-  .get(isAuthenticateUser, authorizeRole("admin"), getSingleUser)
-  .put(isAuthenticateUser, authorizeRole("admin"), updateUserRole)
-  .delete(isAuthenticateUser, authorizeRole("admin"), deleteUser);
+  .get(getSingleUser)
+  .put(updateUserRole)
+  .delete(deleteUser);
 module.exports = router;

@@ -68,7 +68,7 @@ const SignIn = () => {
   };
 
   return (
-    <Box height="85vh" bg="#ffffff" padding="0px">
+    <Box mt="7rem" height="85vh" bg="#ffffff" padding="0px">
       <Divider orientation="horizontal" />
       <Box
         width={{ base: "90%", sm: "80%", md: "70%", lg: "60%" }}
@@ -125,7 +125,7 @@ const SignIn = () => {
           </Stack>
           <Box paddingTop={{ base: "30px", lg: "50px" }} textAlign="center">
             New User?{" "}
-            <Link color="teal.500" href="sign-up">
+            <Link color="teal.500" href="/register">
               Sign Up
             </Link>
           </Box>

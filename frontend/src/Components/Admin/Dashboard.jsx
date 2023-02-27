@@ -11,7 +11,7 @@ import {
   Tr,
 } from "@chakra-ui/react";
 import { useDispatch, useSelector } from "react-redux";
-import { getUsers } from "../../redux/admin/admin.actions";
+// import { getUsers } from "../../redux/admin/admin.actions";
 import BreadCrumbUtils from "../../utils/BreadCrumb";
 import { Chart } from "react-google-charts";
 import Headings from "./Headings";
@@ -19,7 +19,7 @@ const Dashboard = () => {
   const dispatch = useDispatch();
   const users = useSelector((store) => store.adminReducers.data);
   useEffect(() => {
-    dispatch(getUsers());
+    // dispatch(getUsers());
   }, [dispatch]);
   const links = [
     {
@@ -40,7 +40,7 @@ const Dashboard = () => {
     },
     {
       title: "Users",
-      quantity: users.length,
+      quantity: 9,
       bg: "#5197c2",
     },
   ];

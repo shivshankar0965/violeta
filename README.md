@@ -9,7 +9,7 @@
 
 - Bhavik Maru (My Linkedin profile :- https://www.linkedin.com/)
 
-- Rajat Mujawar (My Linkedin profile :- https://www.linkedin.com/public-profile/settings)
+- Rajat Mujawar (My Linkedin profile :- https://www.linkedin.com/in/rajat-mujawar-70a02822b
 
 - Jyoti Kumari (My Linkedin profile :- http://www.linkedin.com/in/jyoti-kumari-83162523b)
 

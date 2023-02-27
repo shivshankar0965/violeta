@@ -59,7 +59,6 @@ const Sidebar = ({ hamController, hamClick }) => {
       url: "/admin/reviews",
     },
   ];
-  console.log(sideBarLinks[0].func);
   return (
     <>
       <Flex

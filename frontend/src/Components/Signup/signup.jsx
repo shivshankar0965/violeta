@@ -103,7 +103,7 @@ const SignUp = () => {
               <BreadcrumbLink href="/">Home</BreadcrumbLink>
             </BreadcrumbItem>
             <BreadcrumbItem>
-              <BreadcrumbLink href="/sign-up">Sign-Up</BreadcrumbLink>
+              <BreadcrumbLink href="/register">Sign-Up</BreadcrumbLink>
             </BreadcrumbItem>
           </Breadcrumb>
         </Box>
@@ -177,7 +177,7 @@ const SignUp = () => {
           </Stack>
           <Box mt="6" textAlign="center">
             Already a user?{" "}
-            <Link color="teal.500" href="sign-in">
+            <Link color="teal.500" href="/login">
               Login
             </Link>
           </Box>

@@ -1,16 +1,26 @@
 import React, { useEffect } from "react";
-import { Box, Flex, Table, Tbody, Text, Th, Thead, Tr } from "@chakra-ui/react";
-import { useDispatch } from "react-redux";
-import { getOrders } from "../../redux/admin/admin.actions";
+import {
+  Box,
+  Flex,
+  Table,
+  Tbody,
+  Td,
+  Text,
+  Th,
+  Thead,
+  Tr,
+} from "@chakra-ui/react";
+import { useDispatch, useSelector } from "react-redux";
+import { getUsers } from "../../redux/admin/admin.actions";
 import BreadCrumbUtils from "../../utils/BreadCrumb";
 import { Chart } from "react-google-charts";
 import Headings from "./Headings";
 const Dashboard = () => {
   const dispatch = useDispatch();
+  const users = useSelector((store) => store.adminReducers.data);
   useEffect(() => {
-    dispatch(getOrders());
+    dispatch(getUsers());
   }, [dispatch]);
-
   const links = [
     {
       title: "dashboard",
@@ -30,7 +40,7 @@ const Dashboard = () => {
     },
     {
       title: "Users",
-      quantity: 2,
+      quantity: users.length,
       bg: "#5197c2",
     },
   ];
@@ -126,13 +136,7 @@ const Dashboard = () => {
         </Box>
         <Headings title={"Recent Orders"} />
 
-        <Box
-          flexDirection={"column"}
-          display={"flex"}
-          gap={"10"}
-          color={"white"}
-          w={"100%"}
-        >
+        <Box flexDirection={"column"} display={"flex"} gap={"10"} w={"100%"}>
           <Table>
             <Thead>
               <Tr>
@@ -145,9 +149,22 @@ const Dashboard = () => {
               </Tr>
             </Thead>
             <Tbody>
-              {/* {topProducts?.map((product, i) => (
-                <ProductRow key={i} {...product} />
-              ))} */}
+              <Tr>
+                <Td>63fa81db21bfb5c28677709c</Td>
+                <Td>admin</Td>
+                <Td>Jhanjharpur, Madhubani</Td>
+                <Td>2</Td>
+                <Td>pending</Td>
+                <Td>199</Td>
+              </Tr>
+              <Tr>
+                <Td>63fa81db21bfb5c28677709c</Td>
+                <Td>user</Td>
+                <Td>Jhanjharpur, Madhubani</Td>
+                <Td>2</Td>
+                <Td>delivered</Td>
+                <Td>299</Td>
+              </Tr>
             </Tbody>
           </Table>
         </Box>
